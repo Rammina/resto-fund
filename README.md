@@ -17,7 +17,7 @@
 ## Overview
 
 RestoFund is a crowd-funding web application, specialized for helping restaurants collect donations to
-help deal with disasters. It was created as part of the Chingu Voyage 30, between 3 May and 13 June 2021. Technologies used are React.js, Node.js, Express, MongoDB, Sass, Google OAuth, Stripe API.
+help deal with disasters. It was initially a [team project for Chingu Voyage 30](https://chingu.io/), but forked and updated as a solo project. Technologies used are React.js, Node.js, Express, MongoDB, Sass, Google OAuth, Stripe API.
 
 <b>LIVE LINK:</b> https://bears07chingu.netlify.app
 
