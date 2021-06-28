@@ -52,7 +52,7 @@ const UploadProjectImageButton = (props) => {
 
   const handleImageInputChange = (e) => {
     const file = e.target.files[0];
-    //console.log(file);
+    console.log(file);
     setImageUploadName(file.name);
     previewFile(file);
   };
@@ -78,8 +78,8 @@ const UploadProjectImageButton = (props) => {
   // const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
 
   const renderImageUploadModal = () => {
-    //console.log(imageUploadName);
-    //console.log(imageUploadModalOpen);
+    console.log(imageUploadName);
+    console.log(imageUploadModalOpen);
     // do not render until image is chosen
     if (!imageUploadModalOpen) return null;
     return ReactDOM.createPortal(
@@ -151,7 +151,7 @@ const UploadProjectImageButton = (props) => {
         accept="image/*"
         value={fileInputState}
         onChange={(e) => {
-          //console.log("image input change");
+          console.log("image input change");
           setImageUploadModalOpen(true);
           handleImageInputChange(e);
         }}

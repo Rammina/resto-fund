@@ -272,6 +272,9 @@ li {
   .auth.page-container {
     padding-top: 5rem;
   }
+  .hide-on-desktop {
+    display: none;
+  }
 }
 @media screen and (min-width: 1024px) and (min-height: 600px) {
   .auth__form-container {

@@ -32,7 +32,7 @@ const updateProjectAmountDonated = async (project, amount) => {
 };
 
 const fulfillOrder = async (session) => {
-  //console.log("Fulfilling order", session);
+  console.log("Fulfilling order", session);
   const { metadata } = session;
   const { userId, projectId, projectCreatorId, amount } = metadata;
   // if the user is registered and logged in (not anonymous donor), update the user
@@ -52,7 +52,7 @@ exports.process_checkout_session = (request, response) => {
   try {
     event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
   } catch (err) {
-    //console.log(err.message);
+    console.log(err.message);
     return response.status(400).send(`Webhook Error: ${err.message}`);
   }
   // Handle the checkout.session.completed event
@@ -62,7 +62,7 @@ exports.process_checkout_session = (request, response) => {
       // Fulfill the purchase...
       fulfillOrder(session);
     } catch (err) {
-      //console.log(err);
+      console.log(err);
       return response.status(400).send(err);
     }
   }

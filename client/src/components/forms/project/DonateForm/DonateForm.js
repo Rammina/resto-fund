@@ -50,17 +50,17 @@ const DonateForm = (props) => {
     // note: still need to figure out what this does
     if (result.id && !result.error) {
       // handle success
-      //console.log("completed");
+      console.log("completed");
     }
     // handle error
     else if (result.error) {
-      //console.log("failure");
+      console.log("failure");
     }
   };
 
   const renderErrorNotifications = () => {
     const errorMessage = error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }

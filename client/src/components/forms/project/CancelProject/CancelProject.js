@@ -13,7 +13,7 @@ import Modal from "../../../UIComponents/Modal/Modal";
 
 const CancelProject = (props) => {
   const onCloseHandler = () => {
-    //console.log("closing cancel-project modal");
+    console.log("closing cancel-project modal");
     props.onClose();
   };
 
@@ -25,7 +25,7 @@ const CancelProject = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }

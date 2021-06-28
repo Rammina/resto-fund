@@ -139,6 +139,12 @@
   padding-top: 3.4rem;
 }
 
+@media screen and (min-width: 768px) {
+  .backdrop.mobile-only {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 768px) and (min-height: 600px) {
   .modal {
     width: fit-content;

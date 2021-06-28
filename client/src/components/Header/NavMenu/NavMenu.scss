@@ -1,0 +1,89 @@
+@import "../../../utils/scss/_variables";
+@import "../../../utils/scss/_config";
+
+#navmenu__hamburger {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3px;
+  background-color: #0000;
+  border: 1px solid $secondaryBlack;
+}
+
+.navmenu__outer-container {
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  height: 100vh;
+  width: 17rem;
+  background-color: $foregroundWhite;
+  top: 0;
+  right: 0;
+  border-left: #0002;
+  transform: translateX(17rem);
+  transition: transform 0.3s ease-in-out;
+}
+.navmenu__outer-container.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+.navmenu__items {
+  // margin-top: 1rem;
+  width: 100%;
+  padding: 0;
+}
+.navmenu__item {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  line-height: 3rem;
+  padding-left: 1rem;
+  &:hover {
+    background-color: #0001;
+  }
+  // if it is the current page
+  &.active {
+    border-left: 3px solid $secondaryBlack;
+  }
+}
+
+@include media-md {
+  #navmenu__hamburger {
+    display: none;
+  }
+
+  .navmenu__outer-container,
+  .navmenu__outer-container.show {
+    z-index: 20;
+    display: block;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    width: fit-content;
+    min-width: 25rem;
+    height: 3.75rem;
+    border-left: none;
+    transform: translateX(0);
+    transition: none;
+  }
+  .navmenu__items {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+    width: 100%;
+    padding: 0;
+    height: 3.75rem;
+  }
+  .navmenu__item {
+    padding: 0 1rem;
+    margin: 0 1rem;
+    width: fit-content;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    &.active {
+      border-left: none;
+      border-bottom: 3px solid $secondaryBlack;
+    }
+  }
+}

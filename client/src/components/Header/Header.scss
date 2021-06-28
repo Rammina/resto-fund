@@ -1,110 +1,26 @@
 @import "../../utils/scss/_variables";
 
-.burger {
-  position: absolute;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  top: 2.5%;
-  left: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-  display: block;
-
-  &:focus {
-    outline: none;
-  }
-
-  div {
-    width: 2rem;
-    height: 0.25rem;
-    background-color: black;
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-    margin: 0.5rem;
-  }
-}
-
 .header {
-  width: 100%;
-  position: fixed;
-  z-index: 80;
+  z-index: 20;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   background-color: $foregroundWhite;
-  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 3.75rem;
+  width: 100vw;
+  padding: 0 0.8rem;
+  border-bottom: 1px solid #0002;
 }
-
-.nav {
+.header__div {
   display: flex;
-  flex-direction: column;
+  width: fit-content;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  & > * {
-    padding: 1rem;
-    border-radius: 40px;
-    margin: 0.5rem;
-    min-width: 10rem;
-    width: fit-content;
-    background-color: #0000;
-    color: $mainBlack;
-    &:hover {
-      background-color: #0001;
-    }
-  }
+  height: 3rem;
 }
-
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
-.icon {
-  cursor: pointer;
-  max-width: 1rem;
-  position: absolute;
-  left: 95%;
-}
-
-// ------------------ breakpoint between mobile and desktop ---------------------------------------
-// ------------------------------------------------------------------------------------------------
-
-@media (min-width: 768px) {
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    height: 4rem;
-    // padding: 2rem 0;
-  }
-
-  .nav {
-    flex-direction: row;
-  }
-
-  .burger {
-    display: none;
-  }
-
-  .icon {
-    display: none;
-  }
+#header__title-link {
+  font-weight: 700;
+  font-size: 1.35rem;
 }

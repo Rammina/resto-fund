@@ -4,6 +4,10 @@
   width: 3rem;
   height: 3rem;
   background-color: #0000;
+  &.navmenu__close {
+    margin-left: auto;
+    margin-right: 0;
+  }
 }
 
 .close-icon-img {
@@ -31,5 +35,8 @@
   .close-button.hide-on-mobile,
   .close-button-container.hide-on-mobile {
     display: block;
+  }
+  .close-button.hide-on-desktop {
+    display: none;
   }
 }

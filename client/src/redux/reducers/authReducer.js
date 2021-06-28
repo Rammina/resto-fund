@@ -55,7 +55,7 @@ export default (state = INITIAL_STATE, action) => {
         isSignedIn: true,
         isLoading: false,
       };
-      //console.log(sanitizedAuthPayload);
+      console.log(sanitizedAuthPayload);
       return {
         ...state,
         ...sanitizedAuthPayload,

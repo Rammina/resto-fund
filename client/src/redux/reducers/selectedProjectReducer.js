@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case GET_PROJECT_SUCCESS:
     case EDIT_PROJECT_SUCCESS:
     case UPLOAD_PROJECT_IMAGE_SUCCESS:
-      //console.log(action.payload);
+      console.log(action.payload);
       return action.payload;
     // when you close a project page, it should reset back to {}
     case CLOSE_PROJECT:

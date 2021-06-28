@@ -13,8 +13,8 @@ module.exports = (req, res, next) => {
   try {
     // Verify token
     const decoded = jwt.verify(token, JWT_SECRETKEY);
-    //console.log("from line seventeen");
-    //console.log(decoded);
+    console.log("from line seventeen");
+    console.log(decoded);
     // Add user from payload
     req.user = decoded;
     next();

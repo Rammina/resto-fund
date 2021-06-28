@@ -28,12 +28,12 @@ const CloseButton = (props) => {
     <React.Fragment>
       <div
         className={`close-button-container ${
-          props.className
+          props.className || ""
         } ${getHideOnMobileClass()} ${getHideOnDesktopClass()}`}
       >
         <button
           className={`close-button ${
-            props.className
+            props.className || ""
           } ${getHideOnMobileClass()} ${getHideOnDesktopClass()}`}
           id={`${getButtonId()}`}
           onClick={onClickHandler}
@@ -47,7 +47,7 @@ const CloseButton = (props) => {
         >
           <img
             id={`${getImageId()}`}
-            className={`close-icon-img ${props.className}`}
+            className={`close-icon-img ${props.className || ""}`}
             src={CloseIconImg}
             alt="X Icon"
           />

@@ -55,13 +55,13 @@ const connect = async () => {
   try {
     mongoose.Promise = global.Promise;
     await mongoose.connect(MONGO_URL, MONGO_CONFIG);
-    //console.log("Successfully connected MongoDB!");
+    console.log("Successfully connected MongoDB!");
   } catch (err) {
-    //console.log("Mongoose error", err);
+    console.log("Mongoose error", err);
   }
   // start express server
   app.listen(SERVER_PORT);
-  //console.log(`Server listening on ${SERVER_PORT}`);
+  console.log(`Server listening on ${SERVER_PORT}`);
 };
 
 connect();

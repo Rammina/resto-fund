@@ -25,7 +25,7 @@ import {
 export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
-  //console.log(tokenConfig(getState));
+  console.log(tokenConfig(getState));
   serverRest
     .get("/auth/user", tokenConfig(getState))
     .then((res) => {
@@ -47,8 +47,8 @@ export const registerUser = (formValues) => {
     serverRest
       .post("/auth/register", formValues)
       .then((res) => {
-        //console.log(res);
-        //console.log(res.data);
+        console.log(res);
+        console.log(res.data);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
         history.push(`/dashboard`);
@@ -56,7 +56,7 @@ export const registerUser = (formValues) => {
       })
       .catch((err) => {
         // this needs an error handler action creator and reducer
-        //console.log(err);
+        console.log(err);
         dispatch(
           returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
         );
@@ -70,11 +70,11 @@ export const registerUser = (formValues) => {
 
 // Login User
 export const loginUser = (formValues) => (dispatch) => {
-  //console.log("logging in the user");
+  console.log("logging in the user");
   serverRest
     .post("/auth/login", formValues)
     .then((res) => {
-      //console.log(res.data);
+      console.log(res.data);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -86,8 +86,8 @@ export const loginUser = (formValues) => (dispatch) => {
       dispatch(clearErrors());
     })
     .catch((err) => {
-      //console.log(err);
-      //console.log(err.response);
+      console.log(err);
+      console.log(err.response);
       dispatch(
         returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
       );
@@ -116,7 +116,7 @@ export const logout = () => (dispatch) => {
 
 // Setup config/headers and token
 export const tokenConfig = (getState) => {
-  //console.log(localStorage.getItem("token"));
+  console.log(localStorage.getItem("token"));
 
   const token = getState().auth.token;
   // headers
@@ -136,8 +136,8 @@ export const googleSignIn =
     serverRest
       .post("/auth/google_login", userInfo)
       .then((res) => {
-        //console.log(res);
-        //console.log(res.data);
+        console.log(res);
+        console.log(res.data);
         dispatch({ type: GOOGLE_SIGN_IN_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
         // redirect to another page and clear the errors so it doesn't carry over

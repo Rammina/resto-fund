@@ -12,14 +12,14 @@ const AuthLoader = (props) => {
 
   const handleLoadingStateChanges = () => {
     if (props.isLoadingUser) {
-      //console.log("render the loader");
+      console.log("render the loader");
       setFadeLoader(false);
       setRenderComponent(true);
     } else {
-      //console.log("fade the loader");
+      console.log("fade the loader");
       setFadeLoader(true);
       setTimeout(() => {
-        //console.log("do not render the loader");
+        console.log("do not render the loader");
         setRenderComponent(false);
       }, 300);
     }

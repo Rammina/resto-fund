@@ -32,7 +32,7 @@ const EditProject = (props) => {
     const editProjectSuccessCb = () => {
       onModalCloseHandler();
     };
-    //console.log(formValues);
+    console.log(formValues);
     formValues.projectId = props.project.id;
     // run an action
     // props.actionShowLoader("editProjectModalForm", true);
@@ -41,7 +41,7 @@ const EditProject = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
@@ -128,7 +128,7 @@ const EditProject = (props) => {
 };
 
 const validate = (formValues) => {
-  //console.log(formValues);
+  console.log(formValues);
   const errors = {};
   if (!formValues.name) {
     errors.name = "Please input a project name.";

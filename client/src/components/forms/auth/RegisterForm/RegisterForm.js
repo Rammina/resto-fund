@@ -102,7 +102,7 @@ const RegisterForm = (props) => {
 };
 
 const validate = (formValues) => {
-  //console.log(formValues);
+  console.log(formValues);
   const errors = {};
   if (!formValues.email) {
     errors.email = "Please input an email.";

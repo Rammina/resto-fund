@@ -21,7 +21,7 @@ const ChangeUserPassword = (props) => {
     const changeUserPasswordSuccessCb = () => {
       onModalCloseHandler();
     };
-    //console.log(formValues);
+    console.log(formValues);
     // run an action
     // props.actionShowLoader("changeUserPasswordModalForm", true);
     await props.changeUserPassword(formValues, changeUserPasswordSuccessCb);
@@ -29,7 +29,7 @@ const ChangeUserPassword = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
@@ -142,7 +142,7 @@ const ChangeUserPassword = (props) => {
 };
 
 const validate = (formValues) => {
-  //console.log(formValues);
+  console.log(formValues);
   const errors = {};
   if (!formValues.name) {
     errors.name = "Please input a project name.";

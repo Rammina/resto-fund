@@ -26,7 +26,7 @@ const DeleteAccount = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
