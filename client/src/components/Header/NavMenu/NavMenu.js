@@ -72,7 +72,16 @@ const NavMenu = (props) => {
         onClick={navmenuOnCloseHandler}
       ></div>
       <div class={`navmenu__outer-container ${getNavMenuClass()}`}>
-        <CloseButton hideOnDesktop={true} className="navmenu__close" />
+        <div class="navmenu__title-close-container">
+          <Link to="/" id="navmenu__title-link">
+            RestoFund
+          </Link>
+          <CloseButton
+            hideOnDesktop={true}
+            className="navmenu__close"
+            onClickHandler={navmenuOnCloseHandler}
+          />
+        </div>
         <ul className="navmenu__items">
           <Link to="/allprojects" className="navmenu__item">
             All Projects

@@ -192,6 +192,28 @@ li {
   }
 }
 
+.hr {
+  width: 3rem;
+  height: 3px;
+  background-color: $mainGreen;
+  // border-radius: 5px;
+  font-size: 0;
+  outline: none;
+  outline-color: #0000;
+  border: none;
+  margin: 0.4rem auto;
+  &.subtle {
+    width: 100%;
+    background-color: #0002;
+    height: 1px;
+  }
+}
+
+// minor tweaking for project page-container
+.project.page-container {
+  padding-top: 4rem;
+}
+
 // styles with the auth__ prefix will be used for Login and Register components
 .auth.page-container {
   padding-top: 0;
@@ -205,11 +227,12 @@ li {
   width: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: $foregroundWhite;
+
+  background-color: $backgroundWhite;
   border: 1px solid #ddd;
   margin: 0 auto;
   padding: 1rem 0.5rem;
-  padding-top: 2rem;
+  padding-top: 4.5rem;
 }
 
 .auth__form {
@@ -233,8 +256,10 @@ li {
   }
 }
 
-// note: I know I should use SCSS, but kind of sleepy (-tella)
 @media screen and (min-width: 768px) {
+  .hr.hide-on-desktop {
+    display: none;
+  }
   .auth.page-container {
     padding-bottom: 2rem;
   }
@@ -271,6 +296,9 @@ li {
 @include media-md {
   .auth.page-container {
     padding-top: 5rem;
+  }
+  .auth__form-container {
+    background-color: $foregroundWhite;
   }
   .hide-on-desktop {
     display: none;
