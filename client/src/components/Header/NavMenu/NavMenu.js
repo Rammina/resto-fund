@@ -71,8 +71,8 @@ const NavMenu = (props) => {
         class={`navmenu__backdrop backdrop mobile-only ${getNavMenuClass()}`}
         onClick={navmenuOnCloseHandler}
       ></div>
-      <div class={`navmenu__outer-container ${getNavMenuClass()}`}>
-        <div class="navmenu__title-close-container">
+      <div className={`navmenu__outer-container ${getNavMenuClass()}`}>
+        <div className="navmenu__title-close-container">
           <Link to="/" id="navmenu__title-link">
             RestoFund
           </Link>

@@ -1,6 +1,10 @@
 @import "../../utils/scss/_variables";
 @import "../../utils/scss/_config";
 
+.dashboard.page-container {
+  padding-top: 3.75rem;
+}
+
 // this is only a flex box on desktop
 .dashboard__flex-outer-container {
   width: 100%;
@@ -28,6 +32,9 @@
   &:hover {
     background-color: #0001;
   }
+  &:last-of-type {
+    border-bottom: 1px solid #bbb;
+  }
 }
 
 .dashboard__content {
@@ -54,6 +61,24 @@
   width: calc(100% - 4rem);
   font-size: 1.25rem;
 }
+
+.dashboard-projects__h2 {
+  position: relative;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin-top: 1.5rem;
+}
+
+.dashboard-projects__clickable-text {
+  font-weight: bold;
+  // color: #232575;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
 .dashboard-projects__items {
   display: flex;
   justify-content: center;
@@ -72,8 +97,14 @@
 ////////////////////DASHBOARD CONTENT////////////////////
 
 @include media-md {
+  .dashboard.page-container {
+    padding-top: 5.75rem;
+    // overflow-x: hidden;
+  }
   .dashboard__flex-outer-container {
     display: flex;
+    max-width: 100rem;
+    margin: 0 auto;
   }
   .dashboard__menu-container {
     width: 37%;
@@ -81,6 +112,8 @@
     // border: 1px solid #bbb;
   }
   .dashboard__menu-items {
+    position: relative;
+    top: 0.2rem;
     width: 100%;
     max-width: 17rem;
     margin: 0 auto;
@@ -90,11 +123,18 @@
     background-color: $foregroundWhite;
     border-radius: 8px;
   }
+
   .dashboard__menu-button {
     padding: 0.5rem 1rem;
     padding-left: 1.75rem;
     border: none;
     border-radius: 8px;
+    &.active {
+      background-color: #0002;
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
 
   .dashboard__content {

@@ -1,3 +1,5 @@
+import "./DonateForm.scss";
+
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Field, reduxForm } from "redux-form";
@@ -104,6 +106,7 @@ const DonateForm = (props) => {
         <div className="form-button-container">
           <button
             className="form-button submit"
+            id="donate-form__submit"
             role="link"
             onClick={props.handleSubmit(onSubmit)}
           >

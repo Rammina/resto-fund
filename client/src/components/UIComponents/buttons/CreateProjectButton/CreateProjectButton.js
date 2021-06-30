@@ -29,7 +29,7 @@ const CreateProjectButton = (props) => {
           onClick={onClickHandler}
           type="button"
         >
-          +
+          <span style={{ position: "relative", bottom: "0.15rem" }}>+</span>
         </button>
       );
     // if on non-mobile resolution, render a different type of button

@@ -21,7 +21,11 @@
   font-size: 1.3rem;
   font-weight: 700;
 }
-
+.project .project__creator {
+  text-align: left;
+  width: 88vw;
+  max-width: 32rem;
+}
 .project__flex-outer-container {
   display: flex;
   justify-content: center;
@@ -58,6 +62,8 @@ p.project__description {
   margin-top: 0.7rem;
   padding-top: 0.7rem;
   text-align: left;
+  width: 88vw;
+  max-width: 32rem;
 }
 
 .project__amount {
@@ -73,6 +79,10 @@ p.project__description {
 
 .project__status.failed {
   color: $dangerTextColor;
+}
+
+.project__status.completed {
+  color: $secondaryGreen;
 }
 
 .project__actions-container {
@@ -121,6 +131,9 @@ p.project__description {
 // ----------------------------------------------------------------------------------------------
 
 @include media-md {
+  .project.page-container {
+    padding-top: 5.75rem;
+  }
   .project__details-and-action-container,
   .project__details-container {
     width: 38%;
@@ -154,6 +167,12 @@ p.project__description {
   .project__image {
     width: 48vw;
     height: 27vw;
+  }
+  .project .project__creator,
+  p.project__description {
+    width: 48vw;
+    margin: 0;
+    margin-bottom: 0.7rem;
   }
 
   .project p,

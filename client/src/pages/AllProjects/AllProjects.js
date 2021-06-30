@@ -29,7 +29,7 @@ const AllProjects = (props) => {
         id="all-projects__projects-list-section"
       >
         <h1 className="all-projects__heading">All Fundraising Projects</h1>
-
+        <hr className="hr" />
         <ul className="all-projects__items">
           {projects.map((project, index) => (
             <li className="all-projects__item" key={project.id || index}>

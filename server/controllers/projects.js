@@ -28,6 +28,8 @@ exports.get_all_projects = async (req, res) => {
   console.log("retrieving all projects");
   try {
     const projects = await Project.find()
+      // exclude failed projects from all projects list, because users can't donate anyway
+      .where({ status: { $ne: "failed" } })
       .sort({ amount_donated: -1 })
       // .limit(PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/)
       .populate("creator donors");

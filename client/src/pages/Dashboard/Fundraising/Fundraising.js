@@ -3,11 +3,21 @@ import BackButton from "../../../components/UIComponents/buttons/BackButton";
 import ProjectItem from "../../../components/ProjectItem/ProjectItem";
 import "./Fundraising.scss";
 import CreateProjectButton from "../../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
+import CreateProjectForm from "../../../components/forms/project/CreateProject/CreateProject";
 import { WindowContext } from "../../../AppContext";
 
 const Fundraising = ({ user, projects, onClose }) => {
+  const [isCreateProjectModalShown, setIsCreateProjectModalShown] =
+    useState(false);
   const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
 
+  const createProjectModalOnOpenHandler = () => {
+    setIsCreateProjectModalShown(true);
+  };
+
+  const createProjectModalOnCloseHandler = () => {
+    setIsCreateProjectModalShown(false);
+  };
   const renderMobileCreateButton = () => {
     if (isNonMobileWidth) return null;
     return <CreateProjectButton className="dashboard" isMobile={true} />;
@@ -17,9 +27,51 @@ const Fundraising = ({ user, projects, onClose }) => {
     if (!isNonMobileWidth) return null;
     return <CreateProjectButton className="dashboard" isMobile={false} />;
   };
+
+  const renderCreateProjectModal = () => {
+    if (!isCreateProjectModalShown) return null;
+
+    return (
+      <CreateProjectForm onModalClose={createProjectModalOnCloseHandler} />
+    );
+  };
+
+  const renderProjects = () => {
+    if (!user.id)
+      return (
+        <ul className="dashboard-projects__items">
+          <h2 className="dashboard-projects__h2">Loading Projects...</h2>
+        </ul>
+      );
+    if (projects.length < 1)
+      return (
+        <ul className="dashboard-projects__items">
+          <h2 className="dashboard-projects__h2">
+            You currently have no fundraising projects.{" "}
+            <span
+              className="dashboard-projects__clickable-text"
+              onClick={createProjectModalOnOpenHandler}
+            >
+              Start a fundraiser now!
+            </span>
+          </h2>
+        </ul>
+      );
+    return (
+      <ul className="dashboard-projects__items">
+        {projects.map((project, index) => (
+          <li className="dashboard-projects__item" key={project.id || index}>
+            <ProjectItem project={project} className="dashboard" />
+          </li>
+        ))}{" "}
+      </ul>
+    );
+  };
+
   return (
     <>
       {renderMobileCreateButton()}
+      {renderCreateProjectModal()}
       <section className="dashboard__content">
         <div className="dashboard-content__header">
           <BackButton
@@ -34,16 +86,7 @@ const Fundraising = ({ user, projects, onClose }) => {
           {renderDesktopCreateButton()}
         </div>
         <section className="dashboard-content__section">
-          <ul className="dashboard-projects__items">
-            {projects.map((project, index) => (
-              <li
-                className="dashboard-projects__item"
-                key={project.id || index}
-              >
-                <ProjectItem project={project} className="dashboard" />
-              </li>
-            ))}
-          </ul>
+          {renderProjects()}
         </section>
       </section>
     </>

@@ -288,7 +288,7 @@ const Project = (props) => {
   const renderProjectActionSection = () => {
     if (!project.id) return null;
     return (
-      <div class="project__details-and-action-container">
+      <div className="project__details-and-action-container">
         {renderDesktopProjectInfo()}
         {renderActionButtons()}
         {renderDonateForm()}
