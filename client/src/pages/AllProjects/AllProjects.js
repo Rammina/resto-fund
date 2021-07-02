@@ -35,7 +35,7 @@ const AllProjects = (props) => {
             <li className="all-projects__item" key={project.id || index}>
               <ProjectItem project={project} />
             </li>
-          ))}
+          ))}{" "}
         </ul>
       </section>
     </main>

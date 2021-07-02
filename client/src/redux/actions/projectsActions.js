@@ -49,24 +49,13 @@ export const getProject = (projectId) => (dispatch /* getState*/) => {
     });
 };
 
-export const getAllProjects = () => (dispatch /*, getState*/) => {
+export const getAllProjects = (limit) => (dispatch /*, getState*/) => {
   console.log("getting the list of all projects");
   serverRest
-    .get(`/projects`)
+    .get(`/projects?limit=${limit || 0}`)
     .then((res) => {
       let projects = res.data;
-      let sortedData = null;
       console.log(projects);
-      // note: think about how projects should be sorted (tella)
-      /*
-      // first check if it contains projects
-      if (typeof projects !== "undefined" && projects.length > 0) {
-        // the array is defined and has at least one element
-        let data = null;
-        sortedData = projects.sort(compareValues("name"));
-        console.log(sortedData);
-      }
-      */
       dispatch({
         type: GET_ALL_PROJECTS_SUCCESS,
         payload: /*sortedData ||*/ projects,

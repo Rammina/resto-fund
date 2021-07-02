@@ -83,6 +83,9 @@ const NavMenu = (props) => {
           />
         </div>
         <ul className="navmenu__items">
+          <Link to="/" className="navmenu__item">
+            Home
+          </Link>
           <Link to="/allprojects" className="navmenu__item">
             All Projects
           </Link>

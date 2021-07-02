@@ -1,76 +1,88 @@
-import React, { useState, useEffect } from "react";
-import Login from "../Login/Login";
-import loginService from "../../services/login";
-import appService from "../../services/users";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import ProjectItem from "../../components/ProjectItem/ProjectItem";
+import CreateProjectButton from "../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
+import { getAllProjects } from "../../redux/actions/projectsActions";
+
+import "./Home.scss";
 
 const Home = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
-  const [message, setMessage] = useState(null);
+  // const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
+  const dispatch = useDispatch();
+  // redux store variables
+  const projects = useSelector((state) => state.allProjects);
+  const user = useSelector((state) => state.user.info);
 
+  const getAllProjectsHandler = () => {
+    // place a limit of 3 projects only
+    dispatch(getAllProjects(3));
+  };
+
+  // retrieve projects after rendering the component
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedUser");
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
-      setUser(user);
-      appService.setToken(user.token);
-    }
+    getAllProjectsHandler();
   }, []);
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-
-    try {
-      const user = await loginService.login({
-        username,
-        password,
-      });
-
-      window.localStorage.setItem("loggedUser", JSON.stringify(user));
-
-      appService.setToken(user.token);
-      setUser(user);
-      setUsername("");
-      setPassword("");
-    } catch (exception) {
-      setMessage("Wrong username or password");
-      setTimeout(() => {
-        setMessage(null);
-      }, 4000);
-    }
-  };
-
-  const logout = () => {
-    window.localStorage.removeItem("loggedUser");
-    setUser(null);
-    alert("Logging out?");
-  };
-
-  if (user === null) {
-    return (
-      <Login
-        handleLogin={handleLogin}
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
-        message={message}
-      />
-    );
-  }
-
   return (
-    <div>
-      <span>{`${user.name} has logged in`}</span>{" "}
-      <button onClick={logout}>Logout</button>
-      <Link to="/">Home Page</Link>
-      <Link to="login">Login Page</Link>
-      <Link to="dashboard">Dashboard Page</Link>
-      <Link to="signup">Signup Page</Link>
-    </div>
+    <main class="home page-container">
+      {/*hero section*/}
+      <section id="home__hero-section" class="home__section">
+        <div class="home__section-flex" id="home__hero-content">
+          <h1 id="home__hero-heading" class="home__heading">
+            Fundraising for restaurants you care about
+          </h1>
+          <CreateProjectButton
+            id="home__hero-button"
+            text="Start a Fundraiser"
+            className="home home__fundraising-button"
+            isMobile={false}
+          />
+        </div>
+      </section>
+      {/*projects section*/}
+      <section class="home__section">
+        <div class="home__section-content">
+          <h2 className="home__heading">Top Fundraisers</h2>
+          <hr className="hr" />
+          <ul className="home__items">
+            {projects.map((project, index) => (
+              <li className="home__item" key={project.id || index}>
+                <ProjectItem project={project} />
+              </li>
+            ))}
+          </ul>
+          <Link
+            to={`/allprojects`}
+            className="home__link"
+            id="home__projects-link"
+          >
+            View a list of all fundraisers >>
+          </Link>
+        </div>
+      </section>
+
+      {/*prompt section*/}
+      <section class="home__section">
+        <div class="home__section-content">
+          <h2 className="home__heading">Interested in fundraising?</h2>
+          <hr className="hr" />
+          <CreateProjectButton
+            id="home__hero-button"
+            text="Start a Fundraiser"
+            className="home home__fundraising-button"
+            isMobile={false}
+          />
+        </div>
+      </section>
+    </main>
   );
 };
 
 export default Home;
+
+/* value section
+<section class="home__section">
+  <div class="home__section-content"></div>
+</section>
+*/

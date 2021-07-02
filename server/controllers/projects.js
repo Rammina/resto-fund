@@ -31,7 +31,12 @@ exports.get_all_projects = async (req, res) => {
       // exclude failed projects from all projects list, because users can't donate anyway
       .where({ status: { $ne: "failed" } })
       .sort({ amount_donated: -1 })
-      // .limit(PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/)
+      .limit(
+        // guard against string variables being passed in
+        Number(req.query.limit || 0) ||
+          PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
+          15
+      )
       .populate("creator donors");
     if (!projects) throw Error("Unable to retrieve projects.");
 

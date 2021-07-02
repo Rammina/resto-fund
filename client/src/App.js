@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home/Home";
 import AllProjects from "./pages/AllProjects/AllProjects";
 import Project from "./pages/Project/Project";
 import GoogleAuth from "./components/GoogleAuth/GoogleAuth";
@@ -74,17 +75,17 @@ const App = (props) => {
       <ToastContainer />
       <Router history={history}>
         <WindowContext.Provider value={getWindowContextValue()}>
-          <Route path="/" exact>
-            <Redirect to={"/allprojects"} />
-          </Route>
-          <Route path="/home" exact>
-            <Redirect to={"/allprojects"} />
-          </Route>
           <Header />
           <div style={{ display: "none" }}>
             <GoogleAuth />
           </div>
           <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/home" exact>
+              <Home />
+            </Route>
             <UnauthenticatedRoute path="/login" exact>
               <Login />
             </UnauthenticatedRoute>

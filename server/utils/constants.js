@@ -1,1 +1,1 @@
-exports.PROJECTS_PER_BATCH = 9;
+exports.PROJECTS_PER_BATCH = 15;

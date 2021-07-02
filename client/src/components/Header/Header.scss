@@ -21,9 +21,17 @@
   align-items: center;
   height: 3rem;
 }
+#header__website-title {
+}
 #header__title-link {
   font-weight: 700;
   font-size: 1.35rem;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  padding: 0 0.8rem;
+  &:hover {
+    background-color: #0001;
+  }
 }
 
 @include media-md {
