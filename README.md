@@ -2,17 +2,17 @@
 
 ## Table of Contents
 
-- [Overview](https://github.com/chingu-voyages/v30-bears-team-07#overview)
-- [Features](https://github.com/chingu-voyages/v30-bears-team-07#features)
-- [Technologies Used](https://github.com/chingu-voyages/v30-bears-team-07#technologies-used)
-- [Installation](https://github.com/chingu-voyages/v30-bears-team-07#installation)
-  - [Back-end](https://github.com/chingu-voyages/v30-bears-team-07#backend)
-    - [MongoDB Atlas Setup](https://github.com/chingu-voyages/v30-bears-team-07#mongodb-atlas-setup)
-    - [Cloudinary Setup](https://github.com/chingu-voyages/v30-bears-team-07#cloudinary-setup)
-    - [Stripe Webhook Development Setup](https://github.com/chingu-voyages/v30-bears-team-07#stripe-webhook-development-setup)
-  - [Front-end](https://github.com/chingu-voyages/v30-bears-team-07#frontend)
-- [Dependencies](https://github.com/chingu-voyages/v30-bears-team-07#dependencies)
-- [License](https://github.com/chingu-voyages/v30-bears-team-07#license)
+- [Overview](https://github.com/Rammina/resto-fund#overview)
+- [Features](https://github.com/Rammina/resto-fund#features)
+- [Technologies Used](https://github.com/Rammina/resto-fund#technologies-used)
+- [Installation](https://github.com/Rammina/resto-fund#installation)
+  - [Back-end](https://github.com/Rammina/resto-fund#backend)
+    - [MongoDB Atlas Setup](https://github.com/Rammina/resto-fund#mongodb-atlas-setup)
+    - [Cloudinary Setup](https://github.com/Rammina/resto-fund#cloudinary-setup)
+    - [Stripe Webhook Development Setup](https://github.com/Rammina/resto-fund#stripe-webhook-development-setup)
+  - [Front-end](https://github.com/Rammina/resto-fund#frontend)
+- [Dependencies](https://github.com/Rammina/resto-fund#dependencies)
+- [License](https://github.com/Rammina/resto-fund#license)
 
 ## Overview
 
@@ -46,8 +46,6 @@ User Dashboard
     <li>Payout info</li>
 </ul>
 
-
-
 ### Technologies Used
 
 <br>
@@ -58,7 +56,6 @@ User Dashboard
     <li>Stripe</li>
     <li>Cloudinary</li>
 </ul>
-
 
 ## Installation
 
@@ -150,7 +147,6 @@ npm run client
 The frontend application requires an .env file which contains the following key:
 
 - REACT_APP_GOOGLE_AUTH_CLIENT_ID
-
 
 To run the build process:
 
