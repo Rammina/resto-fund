@@ -205,7 +205,7 @@ export const deleteProject = (projectId, successCb) => (dispatch, getState) => {
   console.log(projectId);
 
   axios /*please replace the URL here for production environment*/
-    .delete(`http://localhost:5000projects/${projectId}`, {
+    .delete(`https://resto-fund.herokuapp.comprojects/${projectId}`, {
       data: { projectId, userId },
     })
     .then((res) => {
