@@ -15,7 +15,7 @@ const Home = () => {
   const user = useSelector((state) => state.user.info);
 
   const getAllProjectsHandler = () => {
-    // place a limit of 3 projects only
+    // place a limit of 3 projects only because homepage doesn't need all of them listed
     dispatch(getAllProjects(3));
   };
 
