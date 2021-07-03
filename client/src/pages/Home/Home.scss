@@ -39,8 +39,8 @@
   -webkit-box-shadow: 0 0 3px 0px $secondaryBlack;
   margin: 1rem auto;
   margin-top: 2.5rem;
-  padding: 0 1.5rem;
-  font-weight: 700;
+
+  // font-weight: 700;
 }
 
 #home__hero-heading {
@@ -65,7 +65,8 @@
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  padding: 0 1.25rem;
+  padding: 0 1.75rem;
+  font-weight: 700;
   margin: 1rem auto;
   &:hover {
     background-color: $mainGreenDim;
