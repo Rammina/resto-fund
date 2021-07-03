@@ -61,11 +61,93 @@ const Home = () => {
           </Link>
         </div>
       </section>
+      {/*value section*/}
+      <section class="home__section">
+        {" "}
+        <div class="home__section-content">
+          <h2 className="home__heading">Leader of Restaurant Crowdfunding</h2>{" "}
+          <hr className="hr" />
+          <ul className="home__values-items">
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Global-oriented</h3>
+                <p className="home__values-p hide-on-mobile">
+                  RestoFund enables people from across the globe to provide aid
+                  to those in need.
+                </p>
+              </div>
+            </li>
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Easy setup</h3>
+                <p className="home__values-p hide-on-mobile">
+                  It doesn't take much to start a fundraiser or to donate to
+                  one, RestoFund makes it easy for you.
+                </p>
+              </div>
+            </li>
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Highly secure</h3>
+                <p className="home__values-p hide-on-mobile">
+                  RestoFund ensures that both your money and data are secure
+                  24/7.
+                </p>
+              </div>
+            </li>
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Mobile-responsive</h3>
+                <p className="home__values-p hide-on-mobile">
+                  Our website works on all screen sizes, you can use RestoFund
+                  on your phone or desktop.
+                </p>
+              </div>
+            </li>
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Online presence</h3>
+                <p className="home__values-p hide-on-mobile">
+                  RestoFund enables you to share your story to and get support
+                  from people online.
+                </p>
+              </div>
+            </li>
+            <li className="home__values-item">
+              <div class="home__values-image-div">
+                <img class="" src="" alt="" />
+              </div>
+              <div class="home__values-text-div">
+                <h3 className="home__values-heading">Expert support</h3>
+                <p className="home__values-p hide-on-mobile">
+                  Our top-notch customer service representatives will assist
+                  you, around-the-clock.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       {/*prompt section*/}
       <section class="home__section">
         <div class="home__section-content">
-          <h2 className="home__heading">Interested in fundraising?</h2>
+          <h2 className="home__heading">Interested in fundraising?</h2>{" "}
           <hr className="hr" />
           <CreateProjectButton
             id="home__hero-button"
@@ -82,7 +164,5 @@ const Home = () => {
 export default Home;
 
 /* value section
-<section class="home__section">
-  <div class="home__section-content"></div>
-</section>
+<section class="home__section">  <div class="home__section-content"></div></section>
 */
