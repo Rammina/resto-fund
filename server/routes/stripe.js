@@ -7,7 +7,7 @@ const STRIPE_SECRETKEY = process.env.STRIPE_SECRETKEY;
 const stripe = require("stripe")(STRIPE_SECRETKEY);
 
 // Find your endpoint's secret in your Dashboard's webhook settings
-const endpointSecret = "whsec_Nc8lZAOCsS35Q5ELpEX82wsaVfTyoGEA";
+const endpointSecret = "whsec_4KnSGKAyc5ZphD1PeuJ2co5YXDC236A1";
 
 const fulfillOrder = (session) => {
   // TODO: fill me in
