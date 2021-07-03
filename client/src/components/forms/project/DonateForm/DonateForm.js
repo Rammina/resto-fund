@@ -14,7 +14,7 @@ import { loadStripe } from "@stripe/stripe-js";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
-  "pk_test_51IxJ2SIxV9qIAWAE0331WoGbLUtUd2dCTAM8mgZu4mhSs7euesdremY1D7olfsoqPx4gK1P7ChbIiRIXnxRRcrY300elzL1hA6"
+  "pk_test_51HuvlhH0GxnacGIVcDo6nNFJyrqaIWfmAdDWA7xn1vQHA42Lac4pbCCo5DSxUQPYabhx8hzYs3K1u5ahkr9crWER00DOtt9w9C"
 );
 
 const DonateForm = (props) => {
