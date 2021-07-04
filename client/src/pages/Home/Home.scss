@@ -164,7 +164,6 @@
   }
   .home__values-items {
     max-width: 27.4rem;
-    
   }
 }
 
@@ -173,8 +172,19 @@
     padding: 2rem 0.5rem;
   }
   #home__hero-section {
+    justify-content: flex-start;
+    align-items: center;
     min-height: 25rem;
     background-position: 50% 50%;
+    background-image: url("../../assets/images/restofund-hero-image-lg.png");
+  }
+  #home__hero-content {
+    position: relative;
+    top: 0;
+    margin-bottom: 3rem;
+    width: 50%;
+    max-width: 28rem;
+    margin-left: 7%;
   }
   .home__heading {
     font-size: 2rem;
@@ -184,14 +194,17 @@
   }
   #home__hero-heading {
     position: relative;
-    bottom: 1.5rem;
+    // bottom: 1.5rem;
     font-size: 3rem;
+    text-align: left;
   }
   #home__hero-section
     .btn.btn--create.btn.btn--create.home__fundraising-button {
     position: relative;
-    top: 2rem;
-    margin: 3rem auto;
+    top: 0rem;
+    margin: 0rem auto;
+    margin-top: 2rem;
+    margin-left: 1rem;
     font-size: 1.2rem;
     // margin-top: 4rem;
   }
@@ -212,6 +225,12 @@
   }
 }
 
+@media screen and (min-width: 1500px) {
+  #home__hero-content {
+    max-width: 40rem;
+  }
+}
+
 @include media-xl {
   #home__hero-section {
     min-height: 35rem;
@@ -224,5 +243,8 @@
   }
   .home__values-item {
     width: 28%;
+  }
+  #home__hero-heading {
+    // font-size: 3.1rem;
   }
 }

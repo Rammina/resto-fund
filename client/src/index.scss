@@ -321,3 +321,9 @@ li {
     display: none;
   }
 }
+
+@media screen and (max-width: 1499px) {
+  .hide-under-1500w {
+    display: none;
+  }
+}

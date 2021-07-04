@@ -11,7 +11,6 @@ import ShareImg from "../../assets/icons/share.png";
 // Icons made by Good Ware from www.flaticon.com
 import CustomerServiceImg from "../../assets/icons/customer-service.png";
 
-
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -44,7 +43,8 @@ const Home = () => {
       <section id="home__hero-section" className="home__section">
         <div className="home__section-flex" id="home__hero-content">
           <h1 id="home__hero-heading" className="home__heading">
-            Fundraising for restaurants you care about
+            Fundraising for restaurants{" "}
+            <span className="hide-under-1500w">that </span>you care about
           </h1>
           <CreateProjectButton
             id="home__hero-button"
@@ -76,16 +76,19 @@ const Home = () => {
         </div>
       </section>
       {/*value section*/}
-      
+
       <section className="home__section">
-       
         <div className="home__section-content">
           <h2 className="home__heading">Leader of Restaurant Crowdfunding</h2>
           <hr className="hr" />
           <ul className="home__values-items">
             <li className="home__values-item">
               <div className="home__values-image-div">
-                <img className="home__values-image" src={GlobeImg} alt="Globe Icon" />
+                <img
+                  className="home__values-image"
+                  src={GlobeImg}
+                  alt="Globe Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Global-oriented</h3>
@@ -97,7 +100,11 @@ const Home = () => {
             </li>
             <li className="home__values-item">
               <div className="home__values-image-div">
-              <img className="home__values-image" src={SettingsImg} alt="Settings Icon" />
+                <img
+                  className="home__values-image"
+                  src={SettingsImg}
+                  alt="Settings Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Easy setup</h3>
@@ -109,7 +116,11 @@ const Home = () => {
             </li>
             <li className="home__values-item">
               <div className="home__values-image-div">
-              <img className="home__values-image" src={ShieldImg} alt="Shield Icon" />
+                <img
+                  className="home__values-image"
+                  src={ShieldImg}
+                  alt="Shield Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Highly secure</h3>
@@ -121,7 +132,11 @@ const Home = () => {
             </li>
             <li className="home__values-item">
               <div className="home__values-image-div">
-              <img className="home__values-image" src={PhoneImg} alt="Phone Icon" />
+                <img
+                  className="home__values-image"
+                  src={PhoneImg}
+                  alt="Phone Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Mobile-responsive</h3>
@@ -133,7 +148,11 @@ const Home = () => {
             </li>
             <li className="home__values-item">
               <div className="home__values-image-div">
-              <img className="home__values-image" src={ShareImg} alt="Share Icon" />
+                <img
+                  className="home__values-image"
+                  src={ShareImg}
+                  alt="Share Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Online presence</h3>
@@ -145,7 +164,11 @@ const Home = () => {
             </li>
             <li className="home__values-item">
               <div className="home__values-image-div">
-              <img className="home__values-image" src={CustomerServiceImg} alt="Customer Service Icon" />
+                <img
+                  className="home__values-image"
+                  src={CustomerServiceImg}
+                  alt="Customer Service Icon"
+                />
               </div>
               <div className="home__values-text-div">
                 <h3 className="home__values-heading">Expert support</h3>
