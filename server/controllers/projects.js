@@ -25,11 +25,18 @@ const updateProjectStatus = async (project) => {
 
 // retrieve projects list (not user specific)
 exports.get_all_projects = async (req, res) => {
-  //console.log("retrieving all projects");
+  console.log("retrieving all projects");
   try {
     const projects = await Project.find()
+      // exclude failed projects from all projects list, because users can't donate anyway
+      .where({ status: { $ne: "failed" } })
       .sort({ amount_donated: -1 })
-      // .limit(PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/)
+      .limit(
+        // guard against string variables being passed in
+        Number(req.query.limit || 0) ||
+          PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
+          15
+      )
       .populate("creator donors");
     if (!projects) throw Error("Unable to retrieve projects.");
 
@@ -56,7 +63,7 @@ exports.get_all_projects = async (req, res) => {
     */
     res.status(200).json(projects);
   } catch (e) {
-    //console.log(e);
+    console.log(e);
     res.status(400).json({ msg: e.message });
   }
 };
@@ -64,7 +71,7 @@ exports.get_all_projects = async (req, res) => {
 // retrieve all projects that belong only to a specific user
 //this is where the error is
 exports.get_all_user_projects = async (req, res) => {
-  //console.log("retrieving user projects list");
+  console.log("retrieving user projects list");
   try {
     // declare empty object to be used for categorizing
     let userProjects = {};
@@ -74,11 +81,11 @@ exports.get_all_user_projects = async (req, res) => {
       .select("projectsOwned projectsSupported")
       .populate("projectsOwned projectsSupported");
     if (!user) throw Error("User does not exist.");
-    //console.log(user);
+    console.log(user);
 
     // categorize them first for easy retrieval
     let { projectsOwned, projectsSupported } = user;
-    //console.log(projectsOwned);
+    console.log(projectsOwned);
 
     for (let project of projectsOwned) {
       if (project.status === "completed" || project.status === "failed")
@@ -118,7 +125,7 @@ exports.get_all_user_projects = async (req, res) => {
     // const processedProjectsSupported = await projectsSupported.map((project) =>
     //   updateProjectStatus(project)
     // );
-    // //console.log(processedProjectsOwned);
+    // console.log(processedProjectsOwned);
     // make sure the statuses are updated before sending them to frontend
     userProjects = {
       projectsOwned,
@@ -126,14 +133,14 @@ exports.get_all_user_projects = async (req, res) => {
     };
     res.status(200).json(userProjects);
   } catch (e) {
-    //console.log(e);
+    console.log(e);
     res.status(400).json({ msg: e.message });
   }
 };
 
 //action sends a GET method to that route, this controller function gets called
 exports.get_project = async (req, res) => {
-  //console.log("retrieving a project");
+  console.log("retrieving a project");
   try {
     //mongoose query
     const project = await Project.findById(req.params.id).populate("creator");
@@ -145,7 +152,7 @@ exports.get_project = async (req, res) => {
     const processedProject = await updateProjectStatus(project);
     res.status(200).json(processedProject); /*if it exists, send success*/
   } catch (e) {
-    //console.log(e);
+    console.log(e);
     res
       .status(400)
       .json({ msg: e.message }); /*return error code, as well as message*/
@@ -206,7 +213,7 @@ exports.create_project = async (req, res) => {
         status: "active",
       });
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }
@@ -249,7 +256,7 @@ exports.edit_project = async (req, res) => {
         throw Error("Unauthorized user. Unable to edit the project.");
       }
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }
@@ -284,7 +291,7 @@ exports.cancel_project = async (req, res) => {
         throw Error("Unauthorized user. Unable to cancel the project.");
       }
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }
@@ -320,7 +327,7 @@ exports.delete_project = async (req, res) => {
         throw Error("Unauthorized user. Unable to delete the project.");
       }
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }

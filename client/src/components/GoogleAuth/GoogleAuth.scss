@@ -15,14 +15,19 @@
     background-color: #358;
   }
 
-  &.user-nav__link {
+  &.navmenu__item {
     display: block;
-    width: fit-content;
-    margin: 0 0.5rem 0 0;
+    width: 100%;
+    min-height: 3rem;
+    line-height: 3rem;
+    padding-left: 1rem;
     background-color: #0000;
+    text-align: left;
+    margin: 0;
     color: $mainBlack;
+    border-radius: 0px;
   }
-  &.user-nav__link:hover {
+  &.navmenu__item:hover {
     background-color: #0001;
   }
 }
@@ -42,5 +47,9 @@
   .ui.primary.google.button {
     width: fit-content;
     padding: 1rem;
+    &.navmenu__item {
+      padding: 0 1rem;
+      width: fit-content;
+    }
   }
 }

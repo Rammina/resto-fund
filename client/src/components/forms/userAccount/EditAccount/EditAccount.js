@@ -21,7 +21,7 @@ const EditAccount = (props) => {
     const editAccountSuccessCb = () => {
       onModalCloseHandler();
     };
-    //console.log(formValues);
+    console.log(formValues);
     // run an action
     // props.actionShowLoader("editAccountModalForm", true);
     await props.editAccount(formValues, editAccountSuccessCb);
@@ -29,7 +29,7 @@ const EditAccount = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
@@ -121,7 +121,7 @@ const EditAccount = (props) => {
 };
 
 const validate = (formValues) => {
-  //console.log(formValues);
+  console.log(formValues);
   const errors = {};
   if (!formValues.name) {
     errors.name = "Please input a project name.";

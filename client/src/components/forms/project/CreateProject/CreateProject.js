@@ -56,7 +56,7 @@ const CreateProject = (props) => {
     const createProjectSuccessCb = () => {
       onModalCloseHandler();
     };
-    //console.log(formValues);
+    console.log(formValues);
     // run an action
     // props.actionShowLoader("createProjectModalForm", true);
     await props.createProject(formValues, createProjectSuccessCb);
@@ -64,7 +64,7 @@ const CreateProject = (props) => {
 
   const renderErrorNotifications = () => {
     const errorMessage = props.error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
@@ -192,7 +192,7 @@ const CreateProject = (props) => {
 };
 
 const validate = (formValues) => {
-  //console.log(formValues.deadline);
+  console.log(formValues.deadline);
   const errors = {};
   if (!formValues.name) {
     errors.name = "Please input a project name.";

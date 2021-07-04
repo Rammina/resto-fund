@@ -1,12 +1,14 @@
 @import "../../utils/scss/_variables";
+@import "../../utils/scss/_config";
 
 .project.page-container {
 }
 
 .project h1 {
+  width: 100%;
   font-size: 1.6rem;
-  text-align: left;
-  margin-bottom: 0;
+  text-align: center;
+  margin: 0;
 }
 
 .project p {
@@ -19,7 +21,11 @@
   font-size: 1.3rem;
   font-weight: 700;
 }
-
+.project .project__creator {
+  text-align: left;
+  width: 88vw;
+  max-width: 32rem;
+}
 .project__flex-outer-container {
   display: flex;
   justify-content: center;
@@ -48,17 +54,35 @@
   max-height: 18rem;
   height: 49.5vw;
   border-radius: 5px;
-  border: 1px solid #aaa;
+  box-shadow: 0 0 1px #aaa;
 }
 
 p.project__description {
   border-top: 1px solid #bbb;
   margin-top: 0.7rem;
   padding-top: 0.7rem;
+  text-align: left;
+  width: 88vw;
+  max-width: 32rem;
+}
+
+.project__amount {
+  font-size: 1.1rem;
+}
+
+// make them fade a little bit to emphasize the title and amount
+.project__status,
+.project__deadline,
+.project__description {
+  color: $secondaryBlack;
 }
 
 .project__status.failed {
   color: $dangerTextColor;
+}
+
+.project__status.completed {
+  color: $secondaryGreen;
 }
 
 .project__actions-container {
@@ -90,7 +114,7 @@ p.project__description {
 }
 
 .project__button.danger {
-  margin-top: 1.8rem;
+  margin-top: 0.75rem;
   background-color: $dangerBackgroundColor;
 
   &:hover {
@@ -98,29 +122,65 @@ p.project__description {
   }
 }
 
+.project.hr.subtle {
+  position: relative;
+  top: 0.2rem;
+}
+
 // ----------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------
 
-@media (min-width: 768px) {
-  .project__actions-container,
+@include media-md {
+  .project.page-container {
+    padding-top: 5.75rem;
+  }
+  .project__details-and-action-container,
   .project__details-container {
-    width: 50%;
-    max-width: 28rem;
+    width: 38%;
+    max-width: 23rem;
     margin: 0;
   }
   .project__details-container {
-    max-width: 35rem;
+    width: 52%;
+    max-width: 32rem;
     justify-content: flex-start;
+    margin-right: 2rem;
+  }
+  .project__details-and-action-container {
+    border: 1px solid #0002;
+    background-color: $foregroundWhite;
+    border-radius: 8px;
+    padding: 0.8rem;
+    height: fit-content;
+    align-self: flex-start;
+  }
+  #hr--below-project-details {
+    position: relative;
+    top: 0.5rem;
   }
   .project__actions-container {
+    margin-top: 0;
     border-top: 0px solid #0000;
+    width: 100%;
+    padding: 0.5rem 0;
   }
   .project__image {
     width: 48vw;
     height: 27vw;
   }
-  .project p {
+  .project .project__creator,
+  p.project__description {
+    width: 48vw;
+    margin: 0;
+    margin-bottom: 0.7rem;
+  }
+
+  .project p,
+  .project h1 {
     text-align: left;
+  }
+  .project h1 {
+    font-size: 1.8rem;
   }
   .project.btn {
     width: fit-content;
@@ -130,8 +190,21 @@ p.project__description {
     padding: 0.5rem 1rem;
   }
 
+  .project__amount-donated {
+    font-size: 1.7rem;
+  }
+
   .project__button {
     padding: 0.5rem 1rem;
-    width: fit-content;
+    width: 100%;
+  }
+}
+
+@include media-lg {
+  .project__amount-donated {
+    font-size: 2rem;
+  }
+  .project h1 {
+    font-size: 2rem;
   }
 }

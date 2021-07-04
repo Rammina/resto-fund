@@ -1,1 +1,171 @@
-//
+@import "../../utils/scss/_variables";
+@import "../../utils/scss/_config";
+
+.home__section {
+  padding: 1rem 0.5rem;
+  // max-width: ;
+}
+
+#home__hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 15rem;
+  background-color: $secondaryBlack;
+  background-image: url("../../assets/images/restofund-hero-image.png");
+  background-repeat: no-repeat;
+  // background-position: center;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.home__section:nth-of-type(even) {
+  background-color: #e5e9e8;
+}
+
+.home__section-content {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+#home__hero-content {
+  position: relative;
+  bottom: 1.2rem;
+}
+
+#home__hero-content .btn.btn--create.home__fundraising-button {
+  box-shadow: 0 0 3px 0px $secondaryBlack;
+  -webkit-box-shadow: 0 0 3px 0px $secondaryBlack;
+  margin: 1rem auto;
+  margin-top: 2.5rem;
+
+  // font-weight: 700;
+}
+
+#home__hero-heading {
+  color: $textWhite;
+  text-shadow: 0 0 1px black;
+}
+
+.home__heading {
+  margin: 1rem;
+  text-align: center;
+}
+
+.btn.btn--create.home__fundraising-button {
+  z-index: 0;
+  position: relative;
+  width: fit-content;
+  min-height: 0;
+  height: 3rem;
+  right: 0;
+  bottom: 0;
+  font-size: 1rem;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0 1.75rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  &:hover {
+    background-color: $mainGreenDim;
+  }
+}
+
+.home__link {
+  color: $secondaryBlack;
+  &:hover {
+    text-decoration: underline;
+    // color: $secondaryBlack
+  }
+}
+
+#home__projects-link {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.home__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  // align-items:
+}
+
+.home__item {
+  width: 100%;
+  margin: 0.8rem;
+}
+
+@media screen and (min-width: 600px) {
+  .home__item {
+    width: 45%;
+  }
+}
+@media screen and (min-width: 700px) {
+  #home__hero-section {
+    // background-position: 50% 10%;
+  }
+  #home__hero-content {
+    bottom: 0;
+  }
+}
+@include media-md {
+  .home__section {
+    padding: 1rem 0.5rem;
+  }
+  #home__hero-section {
+    min-height: 20rem;
+  }
+  .home__heading {
+    font-size: 1.6rem;
+  }
+  #home__hero-heading {
+    font-size: 2rem;
+  }
+
+  .btn.btn--create.home__fundraising-button {
+    margin: 2rem auto;
+  }
+}
+
+@include media-lg {
+  .home__section {
+    padding: 2rem 0.5rem;
+  }
+  #home__hero-section {
+    min-height: 25rem;
+    background-position: 50% 50%;
+  }
+  .home__heading {
+    font-size: 2rem;
+  }
+  .home__item {
+    width: 30%;
+  }
+  #home__hero-heading {
+    position: relative;
+    bottom: 1.5rem;
+    font-size: 3rem;
+  }
+  #home__hero-section
+    .btn.btn--create.btn.btn--create.home__fundraising-button {
+    position: relative;
+    top: 2rem;
+    margin: 3rem auto;
+    font-size: 1.2rem;
+    // margin-top: 4rem;
+  }
+}
+
+@include media-xl {
+  #home__hero-section {
+    min-height: 35rem;
+  }
+}

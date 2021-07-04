@@ -56,13 +56,13 @@ export const getErrorClass = ({ error, touched }) => {
 // key refers to the name of the property, order can either be asc or desc
 
 export const compareValues = (key, order = "asc") => {
-  //console.log("comparing values");
+  console.log("comparing values");
   // if date values are being compared
   if (key === "date") {
     return function innerDateSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
         // property doesn't exist on either object
-        //console.log(`${key} doesn't exist`);
+        console.log(`${key} doesn't exist`);
         return 0;
       }
       const dateTimeA = new Date(`${a.date}T${a.time}`);
@@ -75,7 +75,7 @@ export const compareValues = (key, order = "asc") => {
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
       // property doesn't exist on either object
-      //console.log(`${key} doesn't exist`);
+      console.log(`${key} doesn't exist`);
       return 0;
     }
 
@@ -171,7 +171,7 @@ export const objectToArray = (
 };
 
 export const arrayHasObjectWithPropAndValue = (array, propName, value) => {
-  //console.log(array);
+  console.log(array);
   if (Array.isArray(array)) {
     return false;
   }

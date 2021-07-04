@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chingu-voyages/v30-bears-team-07.git"
+    "url": "git+https://github.com/Rammina/resto-fund.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chingu-voyages/v30-bears-team-07/issues"
+    "url": "https://github.com/Rammina/resto-fund/issues"
   },
-  "homepage": "https://github.com/chingu-voyages/v30-bears-team-07#readme",
+  "homepage": "https://github.com/Rammina/resto-fund#readme",
   "dependencies": {
     "@stripe/stripe-js": "^1.15.0",
     "async": "^3.2.0",

@@ -7,11 +7,11 @@ const STRIPE_SECRETKEY = process.env.STRIPE_SECRETKEY;
 const stripe = require("stripe")(STRIPE_SECRETKEY);
 
 // Find your endpoint's secret in your Dashboard's webhook settings
-const endpointSecret = "whsec_Nc8lZAOCsS35Q5ELpEX82wsaVfTyoGEA";
+const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 
 const fulfillOrder = (session) => {
   // TODO: fill me in
-  //console.log("Fulfilling order", session);
+  console.log("Fulfilling order", session);
 };
 
 router.post("/webhook", (request, response) => {
@@ -24,7 +24,7 @@ router.post("/webhook", (request, response) => {
   try {
     event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
   } catch (err) {
-    //console.log(err.message);
+    console.log(err.message);
     return response.status(400).send(`Webhook Error: ${err.message}`);
   }
 
@@ -32,7 +32,7 @@ router.post("/webhook", (request, response) => {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
     const metadata = event.data.metadata;
-    //console.log(metadata);
+    console.log(metadata);
 
     // Fulfill the purchase...
     fulfillOrder(session);

@@ -46,9 +46,8 @@ router.post("/:id/create-checkout-session", async (req, res) => {
       userId ||
       Math.random().toString(36).substring(7) + projectId + projectCreatorId,
     metadata: { projectId, projectCreatorId, userId, amount },
-    // note: replace for production environment
-    success_url: `https://bears07chingu.netlify.app/projects/${projectId}?checkoutStatus=success`,
-    cancel_url: `https://bears07chingu.netlify.app/projects/${projectId}?checkoutStatus=canceled`,
+    success_url: `https://resto-fund.netlify.app/projects/${projectId}?checkoutStatus=success`,
+    cancel_url: `https://resto-fund.netlify.app/projects/${projectId}?checkoutStatus=canceled`,
   });
 
   res.status(200).json({ id: session.id });

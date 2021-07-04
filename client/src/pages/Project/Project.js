@@ -1,10 +1,10 @@
 import DefaultProjectImg from "../../assets/images/default-project-image.jpg";
+import "./Project.scss";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import queryString from "query-string";
-
 import { getProject } from "../../redux/actions/projectsActions";
 import { CLOSE_PROJECT } from "../../redux/actions/types";
 import history from "../../history";
@@ -14,12 +14,13 @@ import EditProject from "../../components/forms/project/EditProject/EditProject"
 import DonateForm from "../../components/forms/project/DonateForm/DonateForm";
 import UploadProjectImageButton from "../../components/UIComponents/buttons/UploadProjectImageButton/UploadProjectImageButton";
 import { convertDateToHtmlInputValue, renderNotification } from "../../helpers";
-import "./Project.scss";
+import { WindowContext } from "../../AppContext";
 
 const Project = (props) => {
   const [showDeleteProject, setShowDeleteProject] = useState(false);
   const [showEditProject, setShowEditProject] = useState(false);
   const [showDonateForm, setShowDonateForm] = useState(false);
+  const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
 
   // redux store variables
   const user = useSelector((state) => state.user.info);
@@ -188,6 +189,7 @@ const Project = (props) => {
           Edit Project
         </button>
         <UploadProjectImageButton project={project} />
+        <hr className="hr subtle project" />
         <button
           className="project__button danger"
           onClick={deleteProjectOnOpenHandler}
@@ -219,12 +221,11 @@ const Project = (props) => {
     );
   };
 
-  const renderProjectDetails = () => {
-    if (!project.id) return <h1>Loading Project...</h1>;
+  const renderMobileProjectInfo = () => {
+    if (isNonMobileWidth) return null;
     return (
       <>
-        <h1>{project.name} </h1>
-        <p>
+        <p className="project__amount">
           <span className="project__amount-donated">
             ${project.amount_donated}
           </span>{" "}
@@ -236,6 +237,38 @@ const Project = (props) => {
         <p className={`project__deadline ${getProjectStatusClass()}`}>
           Deadline: {convertToMDY(project.deadline)}
         </p>
+      </>
+    );
+  };
+
+  const renderDesktopProjectInfo = () => {
+    if (!isNonMobileWidth || !project.id) return null;
+    return (
+      <>
+        <p className="project__amount">
+          <span className="project__amount-donated">
+            ${project.amount_donated}
+          </span>{" "}
+          / {project.target_goal} raised.
+        </p>
+        <p className={`project__status ${getProjectStatusClass()}`}>
+          Status: {capitalizeFirstLetter(project.status)}
+        </p>
+        <p className={`project__deadline ${getProjectStatusClass()}`}>
+          Deadline: {convertToMDY(project.deadline)}
+        </p>
+        <hr id="hr--below-project-details" className="hr subtle project" />
+      </>
+    );
+  };
+
+  const renderProjectDetails = () => {
+    if (!project.id) return <h1>Loading Project...</h1>;
+    return (
+      <>
+        <h1>{project.name} </h1>
+        <hr className="hr hide-on-desktop" />
+        {renderMobileProjectInfo()}
 
         <img
           className="project__image"
@@ -243,11 +276,23 @@ const Project = (props) => {
           alt="Project Image"
         />
         <p className={`project__creator`}>
-          Organized by: {project.creator.username}
+          Organized by:
+          <strong> {project.creator.username}</strong>
         </p>
 
         <p className="project__description">{project.description}</p>
       </>
+    );
+  };
+
+  const renderProjectActionSection = () => {
+    if (!project.id) return null;
+    return (
+      <div className="project__details-and-action-container">
+        {renderDesktopProjectInfo()}
+        {renderActionButtons()}
+        {renderDonateForm()}
+      </div>
     );
   };
 
@@ -261,8 +306,7 @@ const Project = (props) => {
           <div className="project__details-container">
             {renderProjectDetails()}
           </div>
-          {renderActionButtons()}
-          {renderDonateForm()}
+          {renderProjectActionSection()}
         </div>
       </div>
     </>

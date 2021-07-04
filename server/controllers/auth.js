@@ -12,7 +12,7 @@ exports.google_login = async (req, res) => {
   // check if any of the following properties are empty
   if (!username || !email)
     errors.push({ msg: "Username or email are missing." });
-  //console.log(email);
+  console.log(email);
   if (errors.length > 0) {
     res.status(400).json({ errors });
   } else {
@@ -89,7 +89,7 @@ exports.google_login = async (req, res) => {
         });
       }
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }
@@ -97,7 +97,7 @@ exports.google_login = async (req, res) => {
 
 // retrieve user information upon application loading
 exports.user_load = async (req, res) => {
-  //console.log("loading user");
+  console.log("loading user");
   try {
     const user = await User.findById(req.user.id)
       .select("-password")
@@ -119,7 +119,7 @@ exports.user_load = async (req, res) => {
 
 exports.register = async (req, res) => {
   const { email, username, password } = req.body;
-  //console.log(req.body);
+  console.log(req.body);
   let errors = [];
 
   // check if any of the following fields are empty
@@ -149,7 +149,7 @@ exports.register = async (req, res) => {
       // check if hashing the password has any errors
       const hash = await bcrypt.hash(password, salt);
       if (!hash) throw Error("Something went wrong hashing the password.");
-      //console.log(JWT_SECRETKEY);
+      console.log(JWT_SECRETKEY);
 
       // create new user object in mongoose
       const newUser = new User({
@@ -185,7 +185,7 @@ exports.register = async (req, res) => {
         user: responseUserObject,
       });
     } catch (e) {
-      //console.log(e);
+      console.log(e);
       res.status(400).json({ msg: e.message });
     }
   }
@@ -210,8 +210,8 @@ exports.login = async (req, res) => {
     if (!user)
       throw Error("User does not exist. Please register for an account.");
 
-    //console.log(password);
-    //console.log(user.password);
+    console.log(password);
+    console.log(user.password);
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw Error("Invalid credentials.");
@@ -241,7 +241,7 @@ exports.login = async (req, res) => {
       user: responseUserObject,
     });
   } catch (e) {
-    //console.log(e);
+    console.log(e);
     res.status(400).json({ msg: e.message });
   }
 };

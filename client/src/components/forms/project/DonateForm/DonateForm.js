@@ -1,3 +1,5 @@
+import "./DonateForm.scss";
+
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Field, reduxForm } from "redux-form";
@@ -12,7 +14,7 @@ import { loadStripe } from "@stripe/stripe-js";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
-  "pk_test_51IxJ2SIxV9qIAWAE0331WoGbLUtUd2dCTAM8mgZu4mhSs7euesdremY1D7olfsoqPx4gK1P7ChbIiRIXnxRRcrY300elzL1hA6"
+  "pk_test_51HuvlhH0GxnacGIVcDo6nNFJyrqaIWfmAdDWA7xn1vQHA42Lac4pbCCo5DSxUQPYabhx8hzYs3K1u5ahkr9crWER00DOtt9w9C"
 );
 
 const DonateForm = (props) => {
@@ -50,17 +52,17 @@ const DonateForm = (props) => {
     // note: still need to figure out what this does
     if (result.id && !result.error) {
       // handle success
-      //console.log("completed");
+      console.log("completed");
     }
     // handle error
     else if (result.error) {
-      //console.log("failure");
+      console.log("failure");
     }
   };
 
   const renderErrorNotifications = () => {
     const errorMessage = error.msg;
-    //console.log(errorMessage);
+    console.log(errorMessage);
     if (errorMessage) {
       return <ErrorNotifications message={errorMessage.msg || null} />;
     }
@@ -104,6 +106,7 @@ const DonateForm = (props) => {
         <div className="form-button-container">
           <button
             className="form-button submit"
+            id="donate-form__submit"
             role="link"
             onClick={props.handleSubmit(onSubmit)}
           >

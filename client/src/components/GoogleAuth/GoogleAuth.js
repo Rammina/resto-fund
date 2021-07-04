@@ -15,7 +15,7 @@ class GoogleAuth extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
-    //console.log(`ismounted is now ${this._isMounted}`);
+    console.log(`ismounted is now ${this._isMounted}`);
 
     // load the Google auth client
     window.gapi.load("client:auth2", () => {
@@ -29,14 +29,14 @@ class GoogleAuth extends React.Component {
         .then(() => {
           // gives a ref to the auth instance
           this.auth = window.gapi.auth2.getAuthInstance();
-          //console.log("initialized auth instance");
+          console.log("initialized auth instance");
           // update redux state, check if user is signed in or not
           this.onAuthChange(this.auth.isSignedIn.get());
           // listen for any changes in sign in status, update state
           this.auth.isSignedIn.listen(this.onAuthChange);
           // change the state so that it knows that it finished initializing
 
-          //console.log(`ismounted is now ${this._isMounted}`);
+          console.log(`ismounted is now ${this._isMounted}`);
           if (this._isMounted) {
             this.setState({ initialized: true });
           }
@@ -45,21 +45,21 @@ class GoogleAuth extends React.Component {
   }
   componentWillUnmount() {
     this._isMounted = false;
-    //console.log(`ismounted is now ${this._isMounted}`);
+    console.log(`ismounted is now ${this._isMounted}`);
   }
 
   onAuthChange = async (isSignedIn) => {
-    //console.log("changing GoogleAuth auth status");
-    //console.log("isSignedIn is");
-    //console.log(isSignedIn);
+    console.log("changing GoogleAuth auth status");
+    console.log("isSignedIn is");
+    console.log(isSignedIn);
 
     if (isSignedIn) {
       const currentUser = this.auth.currentUser.get();
       const userProfile = currentUser.getBasicProfile();
       const fullname = userProfile.getName();
       const email = userProfile.getEmail();
-      //console.log(`user profile is ${userProfile}`);
-      //console.log(userProfile);
+      console.log(`user profile is ${userProfile}`);
+      console.log(userProfile);
 
       await this.props.googleSignIn({
         userId: currentUser.getId(),
@@ -108,7 +108,7 @@ class GoogleAuth extends React.Component {
 
   renderAuthButton = () => {
     if (!this.state.initialized) {
-      //console.log("rendering null until auth state is initialized");
+      console.log("rendering null until auth state is initialized");
       return null;
     }
     if (this.props.isSignedIn) {

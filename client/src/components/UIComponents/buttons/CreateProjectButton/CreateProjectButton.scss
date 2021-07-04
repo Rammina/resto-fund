@@ -4,16 +4,24 @@
 .btn.btn--create {
   z-index: 30;
   position: fixed;
-  display: block;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   background-color: $mainGreen;
   width: 3rem;
   height: 3rem;
   bottom: 0.8rem;
   right: 0.8rem;
+  font-size: 2rem;
+  // line-height: 3rem;
+  padding: 0;
   border: 1px solid #0002;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  &:hover {
+    background-color: $mainGreenDim;
+  }
 }
 
 @include media-md {
@@ -23,9 +31,10 @@
     width: fit-content;
     min-height: 0;
     height: 3rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1.3rem;
     right: 0;
     bottom: 0;
+    font-size: 1rem;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;

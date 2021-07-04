@@ -1,0 +1,146 @@
+@import "../../../utils/scss/_variables";
+@import "../../../utils/scss/_config";
+
+#navmenu__hamburger {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3px;
+  background-color: #0000;
+  border: 1px solid $secondaryBlack;
+}
+
+.navmenu__outer-container {
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  height: 100vh;
+  width: 18rem;
+  background-color: $foregroundWhite;
+  top: 0;
+  right: 0;
+  border-left: #0002;
+  animation: 0.3s ease-out forwards navbar-hide;
+  transform: translateX(17rem);
+  // transition: transform 0.3s ease-in-out;
+}
+.navmenu__outer-container.show {
+  animation: 0.3s ease-out forwards navbar-show;
+}
+.navmenu__items {
+  // margin-top: 1rem;
+  width: 100%;
+  padding: 0;
+}
+
+.navmenu__title-close-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 1rem;
+  border-bottom: 1px solid #0001;
+}
+
+#navmenu__title-link {
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+
+.navmenu__item {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  line-height: 3rem;
+  padding-left: 1rem;
+  border-bottom: 1px solid #0001;
+  &:hover {
+    background-color: #0001;
+  }
+  // if it is the current page
+  &.active {
+    border-left: 3px solid $secondaryBlack;
+  }
+}
+
+@include media-md {
+  #navmenu__hamburger,
+  .navmenu__title-close-container {
+    display: none;
+  }
+
+  .navmenu__outer-container,
+  .navmenu__outer-container.show {
+    z-index: 20;
+    display: block;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    width: fit-content;
+    min-width: 25rem;
+    height: 3.75rem;
+    border-left: none;
+    transform: translateX(0);
+    transition: none;
+    animation: none;
+  }
+  .navmenu__items {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+    width: 100%;
+    padding: 0;
+    height: 3.75rem;
+  }
+  .navmenu__item {
+    padding: 0 1.9rem;
+    margin: 0 0.1rem;
+    width: fit-content;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    border-bottom: none;
+    &.active {
+      border-left: none;
+      border-bottom: 3px solid $secondaryBlack;
+    }
+  }
+  .navmenu__title-close-container {
+    border-bottom: none;
+  }
+}
+
+@keyframes navbar-show {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(17rem);
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+    transform: translateX(17rem);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes navbar-hide {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+    transform: translateX(17rem);
+  }
+  100% {
+    visibility: visible;
+    opacity: 0;
+    transform: translateX(17rem);
+  }
+}
