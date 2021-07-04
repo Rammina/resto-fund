@@ -193,8 +193,8 @@ li {
 }
 
 .hr {
-  width: 3rem;
-  height: 3px;
+  width: 4rem;
+  height: 5px;
   background-color: $mainGreen;
   // border-radius: 5px;
   font-size: 0;
@@ -313,5 +313,11 @@ li {
     position: relative;
     top: 40vh;
     transform: translateY(-50%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
   }
 }

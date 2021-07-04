@@ -103,6 +103,35 @@
   margin: 0.8rem;
 }
 
+.home__values-items {
+  max-width: 25.75rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.home__values-item {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0.5rem;
+}
+
+.home__values-image-div {
+  display: flex;
+  align-items: flex-start;
+  width: 2rem;
+  height: 2rem;
+}
+
+.home__values-text-div {
+  position: relative;
+  margin-left: 1rem;
+  bottom: 0.2rem;
+}
+
+.home__values-p.hide-on-mobile {
+  display: none;
+}
+
 @media screen and (min-width: 600px) {
   .home__item {
     width: 45%;
@@ -133,6 +162,10 @@
   .btn.btn--create.home__fundraising-button {
     margin: 2rem auto;
   }
+  .home__values-items {
+    max-width: 27.4rem;
+    
+  }
 }
 
 @include media-lg {
@@ -162,10 +195,34 @@
     font-size: 1.2rem;
     // margin-top: 4rem;
   }
+  .home__values-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 60rem;
+  }
+  .home__values-item {
+    width: 45%;
+    margin: 1.25rem;
+    align-items: flex-start;
+  }
+  .home__values-p.hide-on-mobile {
+    display: block;
+    margin-top: 0.5rem;
+  }
 }
 
 @include media-xl {
   #home__hero-section {
     min-height: 35rem;
+  }
+  .home__values-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100rem;
+  }
+  .home__values-item {
+    width: 28%;
   }
 }

@@ -1,3 +1,17 @@
+// Icons made by Smashicons from www.flaticon.com
+import GlobeImg from "../../assets/icons/globe.png";
+// Icons made by Smashicons from www.flaticon.com
+import SettingsImg from "../../assets/icons/settings.png";
+// Icons made by DinosoftLabs from www.flaticon.com
+import ShieldImg from "../../assets/icons/shield.png";
+// Icons made by Smashicons from www.flaticon.com
+import PhoneImg from "../../assets/icons/phone.png";
+// Icons made by Smashicons from www.flaticon.com
+import ShareImg from "../../assets/icons/share.png";
+// Icons made by Good Ware from www.flaticon.com
+import CustomerServiceImg from "../../assets/icons/customer-service.png";
+
+
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -25,11 +39,11 @@ const Home = () => {
   }, []);
 
   return (
-    <main class="home page-container">
+    <main className="home page-container">
       {/*hero section*/}
-      <section id="home__hero-section" class="home__section">
-        <div class="home__section-flex" id="home__hero-content">
-          <h1 id="home__hero-heading" class="home__heading">
+      <section id="home__hero-section" className="home__section">
+        <div className="home__section-flex" id="home__hero-content">
+          <h1 id="home__hero-heading" className="home__heading">
             Fundraising for restaurants you care about
           </h1>
           <CreateProjectButton
@@ -41,8 +55,8 @@ const Home = () => {
         </div>
       </section>
       {/*projects section*/}
-      <section class="home__section">
-        <div class="home__section-content">
+      <section className="home__section">
+        <div className="home__section-content">
           <h2 className="home__heading">Top Fundraisers</h2>
           <hr className="hr" />
           <ul className="home__items">
@@ -62,18 +76,18 @@ const Home = () => {
         </div>
       </section>
       {/*value section*/}
-      {/*
-      <section class="home__section">
-        {" "}
-        <div class="home__section-content">
-          <h2 className="home__heading">Leader of Restaurant Crowdfunding</h2>{" "}
+      
+      <section className="home__section">
+       
+        <div className="home__section-content">
+          <h2 className="home__heading">Leader of Restaurant Crowdfunding</h2>
           <hr className="hr" />
           <ul className="home__values-items">
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+                <img className="home__values-image" src={GlobeImg} alt="Globe Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Global-oriented</h3>
                 <p className="home__values-p hide-on-mobile">
                   RestoFund enables people from across the globe to provide aid
@@ -82,10 +96,10 @@ const Home = () => {
               </div>
             </li>
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+              <img className="home__values-image" src={SettingsImg} alt="Settings Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Easy setup</h3>
                 <p className="home__values-p hide-on-mobile">
                   It doesn't take much to start a fundraiser or to donate to
@@ -94,10 +108,10 @@ const Home = () => {
               </div>
             </li>
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+              <img className="home__values-image" src={ShieldImg} alt="Shield Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Highly secure</h3>
                 <p className="home__values-p hide-on-mobile">
                   RestoFund ensures that both your money and data are secure
@@ -106,10 +120,10 @@ const Home = () => {
               </div>
             </li>
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+              <img className="home__values-image" src={PhoneImg} alt="Phone Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Mobile-responsive</h3>
                 <p className="home__values-p hide-on-mobile">
                   Our website works on all screen sizes, you can use RestoFund
@@ -118,10 +132,10 @@ const Home = () => {
               </div>
             </li>
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+              <img className="home__values-image" src={ShareImg} alt="Share Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Online presence</h3>
                 <p className="home__values-p hide-on-mobile">
                   RestoFund enables you to share your story to and get support
@@ -130,10 +144,10 @@ const Home = () => {
               </div>
             </li>
             <li className="home__values-item">
-              <div class="home__values-image-div">
-                <img class="" src="" alt="" />
+              <div className="home__values-image-div">
+              <img className="home__values-image" src={CustomerServiceImg} alt="Customer Service Icon" />
               </div>
-              <div class="home__values-text-div">
+              <div className="home__values-text-div">
                 <h3 className="home__values-heading">Expert support</h3>
                 <p className="home__values-p hide-on-mobile">
                   Our top-notch customer service representatives will assist
@@ -144,10 +158,10 @@ const Home = () => {
           </ul>
         </div>
       </section>
-*/}
+
       {/*prompt section*/}
-      <section class="home__section">
-        <div class="home__section-content">
+      <section className="home__section">
+        <div className="home__section-content">
           <h2 className="home__heading">Interested in fundraising?</h2>{" "}
           <hr className="hr" />
           <CreateProjectButton
@@ -165,5 +179,5 @@ const Home = () => {
 export default Home;
 
 /* value section
-<section class="home__section">  <div class="home__section-content"></div></section>
+<section className="home__section">  <div className="home__section-content"></div></section>
 */
