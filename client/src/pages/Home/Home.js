@@ -62,6 +62,7 @@ const Home = () => {
         </div>
       </section>
       {/*value section*/}
+      {/*
       <section class="home__section">
         {" "}
         <div class="home__section-content">
@@ -143,7 +144,7 @@ const Home = () => {
           </ul>
         </div>
       </section>
-
+*/}
       {/*prompt section*/}
       <section class="home__section">
         <div class="home__section-content">
