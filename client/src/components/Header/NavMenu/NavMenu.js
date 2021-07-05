@@ -1,3 +1,5 @@
+import HamburgerImage from "../../../assets/icons/hamburger.png";
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -62,7 +64,7 @@ const NavMenu = (props) => {
         <img
           className=""
           id="navmenu__hamburger-image"
-          src=""
+          src={HamburgerImage}
           alt="hamburger icon"
         />
       </button>

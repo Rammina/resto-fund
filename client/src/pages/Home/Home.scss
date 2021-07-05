@@ -21,7 +21,7 @@
 }
 
 .home__section:nth-of-type(even) {
-  background-color: #e5e9e8;
+  background-color: $secondaryBgColor;
 }
 
 .home__section-content {
@@ -44,7 +44,7 @@
 }
 
 #home__hero-heading {
-  color: $textWhite;
+  color: $mainWhite;
   text-shadow: 0 0 1px black;
 }
 
@@ -69,7 +69,7 @@
   font-weight: 700;
   margin: 1rem auto;
   &:hover {
-    background-color: $mainGreenDim;
+    background-color: $primaryColorDim;
   }
 }
 
@@ -200,6 +200,8 @@
   }
   #home__hero-section
     .btn.btn--create.btn.btn--create.home__fundraising-button {
+    box-shadow: 0 0 15px 0px #0004;
+    -webkit-box-shadow: 0 0 15px 0px #0004;
     position: relative;
     top: 0rem;
     margin: 0rem auto;

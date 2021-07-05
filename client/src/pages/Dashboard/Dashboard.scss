@@ -44,7 +44,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $foregroundWhite;
+  background-color: $mainFgColor;
   width: 100vw;
   height: 100vh;
 }
@@ -120,7 +120,7 @@
     margin-right: 0;
     padding: 1rem;
     border: 1px solid #ddd;
-    background-color: $foregroundWhite;
+    background-color: $mainFgColor;
     border-radius: 8px;
   }
 

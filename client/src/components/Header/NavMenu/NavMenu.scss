@@ -6,7 +6,16 @@
   height: 3rem;
   border-radius: 3px;
   background-color: #0000;
-  border: 1px solid $secondaryBlack;
+  border: 2px solid $mainWhite;
+  &:hover {
+    background-color: #0002;
+  }
+}
+
+#navmenu__hamburger-image {
+  position: relative;
+  top: 0.125rem;
+  filter: $whiteIconImageFilter;
 }
 
 .navmenu__outer-container {
@@ -16,7 +25,7 @@
   position: fixed;
   height: 100vh;
   width: 18rem;
-  background-color: $foregroundWhite;
+  background-color: $primaryColor;
   top: 0;
   right: 0;
   border-left: #0002;
@@ -26,6 +35,9 @@
 }
 .navmenu__outer-container.show {
   animation: 0.3s ease-out forwards navbar-show;
+}
+.close-icon-img.navmenu__close {
+  filter: $whiteIconImageFilter;
 }
 .navmenu__items {
   // margin-top: 1rem;
@@ -53,6 +65,7 @@
   min-height: 3rem;
   line-height: 3rem;
   padding-left: 1rem;
+  font-size: 1.15rem;
   border-bottom: 1px solid #0001;
   &:hover {
     background-color: #0001;

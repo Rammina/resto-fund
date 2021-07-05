@@ -82,7 +82,7 @@ p.project__description {
 }
 
 .project__status.completed {
-  color: $secondaryGreen;
+  color: $secondaryColor;
 }
 
 .project__actions-container {
@@ -100,7 +100,7 @@ p.project__description {
   // max-width: 25rem;
 
   &:hover {
-    background-color: $mainGreenDim;
+    background-color: $primaryColorDim;
   }
 }
 
@@ -148,7 +148,7 @@ p.project__description {
   }
   .project__details-and-action-container {
     border: 1px solid #0002;
-    background-color: $foregroundWhite;
+    background-color: $mainFgColor;
     border-radius: 8px;
     padding: 0.8rem;
     height: fit-content;
