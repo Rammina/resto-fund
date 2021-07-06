@@ -47,6 +47,11 @@ h6 {
   color: $mainBlack;
   font-weight: 700;
 }
+
+p {
+  color: $secondaryBlack;
+}
+
 button {
   background-color: inherit;
   color: inherit;
@@ -222,6 +227,8 @@ li {
 // styles with the auth__ prefix will be used for Login and Register components
 .auth.page-container {
   padding-top: 0;
+  // background: $primaryColorTranslucent;
+  background: $authPageBgGradient;
 }
 
 .auth__form-container {

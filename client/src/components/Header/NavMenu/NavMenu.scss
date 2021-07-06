@@ -42,8 +42,7 @@
   animation: 0.3s ease-out forwards navbar-show;
 }
 .close-icon-img.navmenu__close {
-  filter: invert(58%) sepia(59%) saturate(6690%) hue-rotate(131deg)
-    brightness(97%) contrast(92%);
+  filter: $greenIconImageFilter;
 }
 .navmenu__items {
   // margin-top: 1rem;

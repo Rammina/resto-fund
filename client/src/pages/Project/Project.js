@@ -225,12 +225,12 @@ const Project = (props) => {
     if (isNonMobileWidth) return null;
     return (
       <>
-        <p className="project__amount">
+        <h2 className="project__amount">
           <span className="project__amount-donated">
             ${project.amount_donated}
           </span>{" "}
           / {project.target_goal} raised.
-        </p>
+        </h2>
         <p className={`project__status ${getProjectStatusClass()}`}>
           Status: {capitalizeFirstLetter(project.status)}
         </p>
@@ -245,12 +245,12 @@ const Project = (props) => {
     if (!isNonMobileWidth || !project.id) return null;
     return (
       <>
-        <p className="project__amount">
+        <h2 className="project__amount">
           <span className="project__amount-donated">
             ${project.amount_donated}
           </span>{" "}
           / {project.target_goal} raised.
-        </p>
+        </h2>
         <p className={`project__status ${getProjectStatusClass()}`}>
           Status: {capitalizeFirstLetter(project.status)}
         </p>
