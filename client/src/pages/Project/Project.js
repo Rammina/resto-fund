@@ -225,12 +225,20 @@ const Project = (props) => {
     if (isNonMobileWidth) return null;
     return (
       <>
+        <br />
         <h2 className="project__amount">
           <span className="project__amount-donated">
             ${project.amount_donated}
           </span>{" "}
           / {project.target_goal} raised.
         </h2>
+        <progress
+          className="progress-bar"
+          max="100"
+          value={Math.ceil(
+            (project.amount_donated / project.target_goal) * 100
+          )}
+        ></progress>
         <p className={`project__status ${getProjectStatusClass()}`}>
           Status: {capitalizeFirstLetter(project.status)}
         </p>
@@ -251,6 +259,13 @@ const Project = (props) => {
           </span>{" "}
           / {project.target_goal} raised.
         </h2>
+        <progress
+          className="progress-bar"
+          max="100"
+          value={Math.ceil(
+            (project.amount_donated / project.target_goal) * 100
+          )}
+        ></progress>
         <p className={`project__status ${getProjectStatusClass()}`}>
           Status: {capitalizeFirstLetter(project.status)}
         </p>

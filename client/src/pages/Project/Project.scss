@@ -14,7 +14,7 @@
 .project p {
   width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .project__amount-donated {
@@ -43,6 +43,7 @@
   // border: 1px solid black;
   // border-radius: 15px;
   margin: 0.5rem auto;
+  padding: 0 0.75rem;
 }
 
 .project__image {
@@ -68,6 +69,8 @@ p.project__description {
 
 .project__amount {
   font-size: 1.1rem;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 // make them fade a little bit to emphasize the title and amount
@@ -147,6 +150,7 @@ p.project__description {
     margin-right: 2rem;
   }
   .project__details-and-action-container {
+    margin-top: 2.55rem;
     border: 1px solid #0002;
     background-color: $mainFgColor;
     border-radius: 8px;
@@ -190,6 +194,10 @@ p.project__description {
     padding: 0.5rem 1rem;
   }
 
+  .project__amount {
+    margin: 0;
+  }
+
   .project__amount-donated {
     font-size: 1.7rem;
   }
@@ -206,5 +214,8 @@ p.project__description {
   }
   .project h1 {
     font-size: 2rem;
+  }
+  .project__details-and-action-container {
+    margin-top: 2.8rem;
   }
 }

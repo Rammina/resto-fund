@@ -215,6 +215,21 @@ li {
   }
 }
 
+.progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  height: 5px;
+  width: 100%;
+}
+.progress-bar::-webkit-progress-bar {
+  background-color: #ccc;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: $primaryColorDim;
+}
+
 .home.page-container {
   padding-top: 3.75rem;
 }

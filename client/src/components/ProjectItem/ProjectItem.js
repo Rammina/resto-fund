@@ -121,6 +121,13 @@ const ProjectItem = ({ project, className }) => {
           </div>
           <div className="project-item__info">
             <h2>{project.name}</h2>
+            <progress
+              className="progress-bar"
+              max="100"
+              value={Math.ceil(
+                (project.amount_donated / project.target_goal) * 100
+              )}
+            ></progress>
             <h3>
               <span className="project-item__amount-donated">
                 ${project.amount_donated}
