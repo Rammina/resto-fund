@@ -1,8 +1,7 @@
 import serverRest from "../../api/serverRest";
 import history from "../../history";
 import { returnErrors, clearErrors } from "./errorActions";
-// Note: to be added later -tella
-// import { actionShowLoader } from "./loaderActions";
+import { actionShowLoader } from "./loaderActions";
 import { reset } from "redux-form";
 import { renderNotification } from "../../helpers";
 
@@ -63,7 +62,7 @@ export const registerUser = (formValues) => {
         dispatch({ type: REGISTER_FAIL });
       })
       .finally(() => {
-        // dispatch(actionShowLoader("registerForm", false));
+        dispatch(actionShowLoader("registerForm", false));
       });
   };
 };
@@ -96,7 +95,7 @@ export const loginUser = (formValues) => (dispatch) => {
       });
     })
     .finally(() => {
-      // dispatch(actionShowLoader("loginForm", false));
+      dispatch(actionShowLoader("loginForm", false));
     });
 };
 

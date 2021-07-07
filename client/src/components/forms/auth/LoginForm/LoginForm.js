@@ -73,7 +73,7 @@ const LoginForm = (props) => {
           type="submit"
           onClick={props.handleSubmit(onSubmit)}
         >
-          {/*renderLoader()*/}Sign In
+          {renderLoader()} Sign In
         </button>
       </div>
     </form>

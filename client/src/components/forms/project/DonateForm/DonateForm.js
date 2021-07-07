@@ -1,15 +1,14 @@
 import "./DonateForm.scss";
 
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect } from "react";
 import { Field, reduxForm } from "redux-form";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors } from "../../../../redux/actions/errorActions";
 import serverRest from "../../../../api/serverRest";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
-// import { actionShowLoader } from "../../../../redux/actions/loaderActions";
-// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 import { loadStripe } from "@stripe/stripe-js";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -21,6 +20,9 @@ const DonateForm = (props) => {
   // redux store variables
   const user = useSelector((state) => state.user.info);
   const error = useSelector((state) => state.error);
+  const showLoader = useSelector(
+    (state) => state.loader.donateProjectFormLoader
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,6 +33,8 @@ const DonateForm = (props) => {
 
   // submit handler
   const onSubmit = async (formValues) => {
+    console.log("submitting");
+    dispatch(actionShowLoader("donateProjectForm", true));
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
@@ -69,10 +73,9 @@ const DonateForm = (props) => {
     return null;
   };
 
-  // note: can be used later
-  // const renderLoader = () => {
-  //   return <LoadingSpinner showLoader={props.showLoader} />;
-  // };
+  const renderLoader = () => {
+    return <LoadingSpinner showLoader={showLoader} />;
+  };
 
   const checkoutOnClickHandler = async (event) => {};
 
@@ -110,7 +113,7 @@ const DonateForm = (props) => {
             role="link"
             onClick={props.handleSubmit(onSubmit)}
           >
-            Checkout
+            {renderLoader()} Checkout
           </button>
         </div>
       </form>

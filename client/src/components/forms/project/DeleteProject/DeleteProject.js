@@ -6,12 +6,12 @@ import { useDispatch } from "react-redux";
 import { clearErrors } from "../../../../redux/actions/errorActions";
 
 import { deleteProject } from "../../../../redux/actions/projectsActions";
-// import { actionShowLoader } from "../../../redux/actions/loaderActions";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
 
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
 import Modal from "../../../UIComponents/Modal/Modal";
 
-// import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const DeleteProject = (props) => {
   const dispatch = useDispatch();
@@ -29,9 +29,9 @@ const DeleteProject = (props) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const onSuccessCb = () => {
-      if (props.onSuccessCb) props.onSuccessCb();
+      if (props.onSuccessCb) props.onSuccessCb(e);
     };
-    // props.actionShowLoader("deleteProjectForm", true);
+    props.actionShowLoader("deleteProjectForm", true);
     props.deleteProject(props.project.id, onSuccessCb);
   };
 
@@ -43,11 +43,11 @@ const DeleteProject = (props) => {
     }
     return null;
   };
-  /*
+
   const renderLoader = () => {
     return <LoadingSpinner className="white" showLoader={props.showLoader} />;
   };
-*/
+
   const content = (
     <React.Fragment>
       <Modal
@@ -83,7 +83,7 @@ const DeleteProject = (props) => {
               type="submit"
               onClick={onSubmitHandler}
             >
-              {/* renderLoader() */} Delete Project
+              {renderLoader()} Delete Project
             </button>
           </div>
         </form>
@@ -98,10 +98,10 @@ const DeleteProject = (props) => {
 const mapStateToProps = (state) => ({
   isSignedIn: state.auth.isSignedIn,
   error: state.error,
-  // showLoader: state.loader.showDeleteProjectFormLoader,
+  showLoader: state.loader.showDeleteProjectFormLoader,
 });
 
 export default connect(mapStateToProps, {
   deleteProject,
-  // actionShowLoader,
+  actionShowLoader,
 })(DeleteProject);

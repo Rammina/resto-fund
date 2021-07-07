@@ -101,15 +101,19 @@ p.project__description {
   width: 100%;
   min-width: 12rem;
   // max-width: 25rem;
+  background-color: #0000;
+  color: $secondaryBlack;
+  border: 1px solid $secondaryBlack;
 
   &:hover {
-    background-color: $primaryColorDim;
+    background-color: #0001;
   }
 }
 
 .project__button.cta {
   background-color: #ffaa14;
   color: $mainBlack;
+  border: none;
 
   &:hover {
     background-color: #ee9900;
@@ -119,6 +123,8 @@ p.project__description {
 .project__button.danger {
   margin-top: 0.75rem;
   background-color: $dangerBackgroundColor;
+  color: $mainWhite;
+  border: none;
 
   &:hover {
     background-color: $dangerBackgroundColorHover;

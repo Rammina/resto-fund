@@ -14,8 +14,8 @@ import Modal from "../../../UIComponents/Modal/Modal";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
 import ReduxTextarea from "../../../../redux/FormComponents/ReduxTextarea/ReduxTextarea";
 
-// import { actionShowLoader } from "../../../../redux/actions/loaderActions";
-// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const CreateProject = (props) => {
   //refs
@@ -58,7 +58,7 @@ const CreateProject = (props) => {
     };
     console.log(formValues);
     // run an action
-    // props.actionShowLoader("createProjectModalForm", true);
+    props.actionShowLoader("createProjectForm", true);
     await props.createProject(formValues, createProjectSuccessCb);
   };
 
@@ -71,10 +71,9 @@ const CreateProject = (props) => {
     return null;
   };
 
-  // note: can be used later
-  // const renderLoader = () => {
-  //   return <LoadingSpinner showLoader={props.showLoader} />;
-  // };
+  const renderLoader = () => {
+    return <LoadingSpinner showLoader={props.showLoader} />;
+  };
 
   const renderContent = () => {
     return (
@@ -175,7 +174,7 @@ const CreateProject = (props) => {
                 type="submit"
                 onClick={props.handleSubmit(onSubmit)}
               >
-                Create Project
+                {renderLoader()} Create Project
               </button>
             </div>
           </div>
@@ -216,11 +215,11 @@ const validate = (formValues) => {
 const mapStateToProps = (state) => ({
   user: state.user.info,
   error: state.error,
-  // showLoader: state.loader.showCreateProjectFormLoader,
+  showLoader: state.loader.showCreateProjectFormLoader,
 });
 
 const createProjectModalComponent = connect(mapStateToProps, {
-  // actionShowLoader,
+  actionShowLoader,
   createProject,
 })(CreateProject);
 

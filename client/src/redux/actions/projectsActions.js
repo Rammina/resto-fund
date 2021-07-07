@@ -3,7 +3,7 @@ import serverRest from "../../api/serverRest";
 import cloudinaryRest from "../../api/cloudinaryRest";
 import history from "../../history";
 import { returnErrors, clearErrors } from "./errorActions";
-// import { actionShowLoader } from "./loaderActions";
+import { actionShowLoader } from "./loaderActions";
 
 import { renderNotification } from "../../helpers";
 
@@ -128,10 +128,10 @@ export const createProject =
         dispatch({
           type: CREATE_PROJECT_FAIL,
         });
+      })
+      .finally(() => {
+        dispatch(actionShowLoader("createProjectForm", false));
       });
-    // .finally(() => {
-    //   dispatch(actionShowLoader("createProjectModalForm", false));
-    // });
   };
 
 export const editProject = (formValues, successCb) => (dispatch, getState) => {
@@ -169,10 +169,10 @@ export const editProject = (formValues, successCb) => (dispatch, getState) => {
       dispatch({
         type: EDIT_PROJECT_FAIL,
       });
+    })
+    .finally(() => {
+      dispatch(actionShowLoader("editProjectForm", false));
     });
-  // .finally(() => {
-  //   dispatch(actionShowLoader("editProjectModalForm", false));
-  // });
 };
 
 export const cancelProject = (projectId, successCb) => (dispatch, getState) => {
@@ -220,7 +220,7 @@ export const deleteProject = (projectId, successCb) => (dispatch, getState) => {
       if (successCb) successCb();
       renderNotification({
         message: "Successfully deleted the project.",
-        type: "dark",
+        type: "info",
       });
     })
     .catch((err) => {
@@ -230,10 +230,10 @@ export const deleteProject = (projectId, successCb) => (dispatch, getState) => {
       dispatch({
         type: DELETE_PROJECT_FAIL,
       });
+    })
+    .finally(() => {
+      dispatch(actionShowLoader("deleteProjectForm", false));
     });
-  // .finally(() => {
-  //   dispatch(actionShowLoader("deleteProjectForm", false));
-  // });
 };
 
 export const uploadProjectImage = (base64EncodedImage, projectId) => {

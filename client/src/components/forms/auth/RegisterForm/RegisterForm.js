@@ -1,13 +1,12 @@
 import React from "react";
-import { Field, reduxForm, reset } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { registerUser } from "../../../../redux/actions/authActions";
-// import { actionShowLoader } from "../../../../redux/actions/loaderActions";
-import { renderError, getErrorClass, validateEmail } from "../../../../helpers";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
+import { validateEmail } from "../../../../helpers";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
-import ReduxTextarea from "../../../../redux/FormComponents/ReduxTextarea/ReduxTextarea";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
-// import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const RegisterForm = (props) => {
   const renderErrorNotifications = () => {
@@ -18,11 +17,11 @@ const RegisterForm = (props) => {
     return null;
   };
 
-  // const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
+  const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
 
   // submit handler
   const onSubmit = async (formValues) => {
-    // props.actionShowLoader("registerForm", true);
+    props.actionShowLoader("registerForm", true);
     await props.registerUser(formValues);
   };
 
@@ -35,7 +34,6 @@ const RegisterForm = (props) => {
         type="text"
         props={{
           inputProps: {
-            placeholder: "Email",
             className: "form__input",
             maxLength: "64",
             autoComplete: "off",
@@ -55,7 +53,6 @@ const RegisterForm = (props) => {
         type="text"
         props={{
           inputProps: {
-            placeholder: "Username",
             className: "form__input",
             maxLength: "30",
             autoComplete: "off",
@@ -74,7 +71,6 @@ const RegisterForm = (props) => {
         type="password"
         props={{
           inputProps: {
-            placeholder: "Password",
             className: "form__input",
             maxLength: "30",
             autoComplete: "off",
@@ -94,7 +90,7 @@ const RegisterForm = (props) => {
           type="submit"
           onClick={props.handleSubmit(onSubmit)}
         >
-          {/*renderLoader()*/}Sign Up
+          {renderLoader()} Sign Up
         </button>
       </div>
     </form>
@@ -122,16 +118,16 @@ const validate = (formValues) => {
 
 const mapStateToProps = (state) => ({
   error: state.error,
-  // showLoader: state.loader.showRegisterFormLoader,
+  showLoader: state.loader.showRegisterFormLoader,
 });
 
 const registerForm = connect(mapStateToProps, {
   registerUser,
-  // actionShowLoader
+  actionShowLoader,
 })(RegisterForm);
 
 export default reduxForm({
   form: "registerForm",
-  destroyOnUnmount: false,
+  destroyOnUnmount: true,
   validate,
 })(registerForm);
