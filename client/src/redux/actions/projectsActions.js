@@ -264,7 +264,7 @@ export const uploadProjectImage = (base64EncodedImage, projectId) => {
       );
       dispatch({ type: UPLOAD_PROJECT_IMAGE_FAIL });
     } finally {
-      // dispatch(actionShowLoader("uploadProjectIconForm", false));
+      dispatch(actionShowLoader("uploadProjectImageForm", false));
     }
   };
 };

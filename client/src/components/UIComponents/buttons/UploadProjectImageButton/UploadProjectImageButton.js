@@ -7,12 +7,12 @@ import { connect } from "react-redux";
 
 import Modal from "../../Modal/Modal";
 
-// import { actionShowLoader } from "../../../../../redux/actions/loaderActions";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
 import { uploadProjectImage } from "../../../../redux/actions/projectsActions";
 
 import { WindowContext } from "../../../../AppContext";
 
-// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const UploadProjectImageButton = (props) => {
   const [imageUploadModalOpen, setImageUploadModalOpen] = useState(false);
@@ -68,14 +68,14 @@ const UploadProjectImageButton = (props) => {
     if (!previewSource) {
       return;
     }
-    // props.actionShowLoader("uploadUploadProjectImageButtonForm", true);
+    props.actionShowLoader("uploadProjectImageForm", true);
     uploadImage(previewSource);
   };
 
   //////////////////// IMAGE upload related stuff is up there////////////////////
 
   // render functions
-  // const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
+  const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
 
   const renderImageUploadModal = () => {
     console.log(imageUploadName);
@@ -118,7 +118,7 @@ const UploadProjectImageButton = (props) => {
                 onClick={handleSubmitFile}
                 autoFocus={true}
               >
-                {/*renderLoader()*/}Upload Image
+                {renderLoader()} Upload Image
               </button>
             </div>
           </form>
@@ -170,12 +170,12 @@ const UploadProjectImageButton = (props) => {
 };
 const mapStateToProps = (state) => ({
   error: state.error,
-  // showLoader: state.loader.showUploadUploadProjectImageButtonFormLoader,
+  showLoader: state.loader.showUploadProjectImageFormLoader,
 });
 
 const uploadProjectImageButton = connect(mapStateToProps, {
   uploadProjectImage,
-  // actionShowLoader,
+  actionShowLoader,
 })(UploadProjectImageButton);
 
 export default uploadProjectImageButton;
