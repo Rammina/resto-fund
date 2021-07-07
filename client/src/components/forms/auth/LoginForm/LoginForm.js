@@ -2,12 +2,12 @@ import React from "react";
 import { Field, reduxForm, reset } from "redux-form";
 import { connect } from "react-redux";
 import { loginUser } from "../../../../redux/actions/authActions";
-// import { actionShowLoader } from "../../../flux/actions/loaderActions";
+import { actionShowLoader } from "../../../../redux/actions/loaderActions";
 import { renderError, getErrorClass, validateEmail } from "../../../../helpers";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
 import ReduxTextarea from "../../../../redux/FormComponents/ReduxTextarea/ReduxTextarea";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
-// import LoadingSpinner from "../../loaders/LoadingSpinner";
+import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const LoginForm = (props) => {
   const renderErrorNotifications = () => {
@@ -18,11 +18,11 @@ const LoginForm = (props) => {
     return null;
   };
 
-  // const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
+  const renderLoader = () => <LoadingSpinner showLoader={props.showLoader} />;
 
   // submit handler
   const onSubmit = async (formValues) => {
-    // props.actionShowLoader("loginForm", true);
+    props.actionShowLoader("loginForm", true);
     await props.loginUser(formValues);
   };
 
@@ -35,7 +35,6 @@ const LoginForm = (props) => {
         type="text"
         props={{
           inputProps: {
-            placeholder: "Email",
             className: "form__input",
             maxLength: "64",
             autoComplete: "off",
@@ -55,7 +54,6 @@ const LoginForm = (props) => {
         type="password"
         props={{
           inputProps: {
-            placeholder: "Password",
             className: "form__input",
             maxLength: "30",
             autoComplete: "off",
@@ -99,12 +97,12 @@ const validate = (formValues) => {
 
 const mapStateToProps = (state) => ({
   error: state.error,
-  // showLoader: state.loader.showLoginFormLoader,
+  showLoader: state.loader.showLoginFormLoader,
 });
 
 const loginForm = connect(mapStateToProps, {
   loginUser,
-  // actionShowLoader
+  actionShowLoader,
 })(LoginForm);
 
 export default reduxForm({

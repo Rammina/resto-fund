@@ -114,7 +114,7 @@ li {
   width: 100%;
   max-width: 25rem;
   margin: 0.2rem auto;
-  color: $secondaryBlack;
+  color: $secondaryBlackLight;
   &.error {
     color: $dangerTextColor;
   }
@@ -145,10 +145,8 @@ li {
   }
 
   &.error {
-    color: #111;
     background-color: $dangerInputBackgroundColor;
     border: solid 1px $dangerTextColor;
-    margin-top: 0.7rem;
   }
 
   &.error:focus {

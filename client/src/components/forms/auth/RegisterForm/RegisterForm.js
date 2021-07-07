@@ -2,12 +2,12 @@ import React from "react";
 import { Field, reduxForm, reset } from "redux-form";
 import { connect } from "react-redux";
 import { registerUser } from "../../../../redux/actions/authActions";
-// import { actionShowLoader } from "../../../flux/actions/loaderActions";
+// import { actionShowLoader } from "../../../../redux/actions/loaderActions";
 import { renderError, getErrorClass, validateEmail } from "../../../../helpers";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
 import ReduxTextarea from "../../../../redux/FormComponents/ReduxTextarea/ReduxTextarea";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
-// import LoadingSpinner from "../../loaders/LoadingSpinner";
+// import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const RegisterForm = (props) => {
   const renderErrorNotifications = () => {

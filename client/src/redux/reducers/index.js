@@ -6,8 +6,7 @@ import allProjectsReducer from "./allProjectsReducer";
 import userProjectsReducer from "./userProjectsReducer";
 import selectedProjectReducer from "./selectedProjectReducer";
 import errorReducer from "./errorReducer";
-// note: I will add these later (Tella - 5/14/21)
-// import loaderReducer from "./loaderReducer.js";
+import loaderReducer from "./loaderReducer";
 
 export default combineReducers({
   form: formReducer,
@@ -17,5 +16,5 @@ export default combineReducers({
   userProjects: userProjectsReducer,
   selectedProject: selectedProjectReducer,
   error: errorReducer,
-  // loader: loaderReducer,
+  loader: loaderReducer,
 });

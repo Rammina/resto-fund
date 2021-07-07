@@ -89,7 +89,7 @@ const NavMenu = (props) => {
             Home
           </Link>
           <Link to="/allprojects" className="navmenu__item">
-            All Projects
+            Fundraisers
           </Link>
           {renderConditionalItems()}
         </ul>

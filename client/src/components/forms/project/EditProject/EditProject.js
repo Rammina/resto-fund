@@ -13,7 +13,7 @@ import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
 import ReduxTextarea from "../../../../redux/FormComponents/ReduxTextarea/ReduxTextarea";
 
 // import { actionShowLoader } from "../../../../redux/actions/loaderActions";
-// import LoadingSpinner from "../../../loaders/LoadingSpinner";
+// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
 
 const EditProject = (props) => {
   const dispatch = useDispatch();

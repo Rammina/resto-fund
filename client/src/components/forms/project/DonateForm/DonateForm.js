@@ -9,7 +9,7 @@ import serverRest from "../../../../api/serverRest";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
 import ReduxInput from "../../../../redux/FormComponents/ReduxInput/ReduxInput";
 // import { actionShowLoader } from "../../../../redux/actions/loaderActions";
-// import LoadingSpinner from "../../../loaders/LoadingSpinner";
+// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
 import { loadStripe } from "@stripe/stripe-js";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.

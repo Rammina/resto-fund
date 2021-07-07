@@ -11,7 +11,7 @@ import { deleteProject } from "../../../../redux/actions/projectsActions";
 import ErrorNotifications from "../../../UIComponents/FormElements/ErrorNotifications/ErrorNotifications";
 import Modal from "../../../UIComponents/Modal/Modal";
 
-// import LoadingSpinner from "../../loaders/LoadingSpinner";
+// import LoadingSpinner from "../../../UIComponents/loaders/LoadingSpinner";
 
 const DeleteProject = (props) => {
   const dispatch = useDispatch();

@@ -7,12 +7,12 @@ import { connect } from "react-redux";
 
 import Modal from "../../Modal/Modal";
 
-// import { actionShowLoader } from "../../../../flux/actions/loaderActions";
+// import { actionShowLoader } from "../../../../../redux/actions/loaderActions";
 import { uploadProjectImage } from "../../../../redux/actions/projectsActions";
 
 import { WindowContext } from "../../../../AppContext";
 
-// import LoadingSpinner from "../../../loaders/LoadingSpinner";
+// import LoadingSpinner from "../../../../UIComponents/loaders/LoadingSpinner";
 
 const UploadProjectImageButton = (props) => {
   const [imageUploadModalOpen, setImageUploadModalOpen] = useState(false);
