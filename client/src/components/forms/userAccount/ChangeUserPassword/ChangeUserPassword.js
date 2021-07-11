@@ -58,7 +58,7 @@ const ChangeUserPassword = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Current Password",
+                  // placeholder: "Current Password",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",
@@ -80,7 +80,7 @@ const ChangeUserPassword = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "New Password",
+                  // placeholder: "New Password",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",
@@ -102,7 +102,7 @@ const ChangeUserPassword = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Confirm New Password",
+                  // placeholder: "Confirm New Password",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",

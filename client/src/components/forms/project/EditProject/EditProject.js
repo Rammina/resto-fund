@@ -69,7 +69,7 @@ const EditProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Project Name",
+                  // placeholder: "Project Name",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",
@@ -91,7 +91,7 @@ const EditProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Description",
+                  // placeholder: "Description",
                   className: "form__input",
                   autoComplete: "off",
                   id: "edit-project-description-field",

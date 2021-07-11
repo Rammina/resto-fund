@@ -90,7 +90,7 @@ const DonateForm = (props) => {
           props={{
             formName: "project",
             inputProps: {
-              placeholder: "Donation Amount (in USD)",
+              // placeholder: "Donation Amount (in USD)",
               className: "form__input",
               min: "1",
               autoComplete: "off",

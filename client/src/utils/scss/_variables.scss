@@ -3,6 +3,7 @@
 $primaryColor: #1ab873;
 $primaryColorDim: #0aa863;
 $primaryColorBrighten: #2ac883;
+$primaryColorBrightenMore: #2fcd88;
 $primaryColorTranslucent: #0aa86340;
 // #0aa86344
 // #bee8d5
@@ -10,6 +11,8 @@ $primaryColorTranslucent: #0aa86340;
 $secondaryColor: #1fc278;
 
 $authPageBgGradient: linear-gradient(0deg, #aed8c5 0%, #deffec 100%);
+$gradientButtonBgGradient: linear-gradient(90deg, #0aa863 0%, #2fcd88 100%);
+$gradientButtonBgGradientDim: linear-gradient(90deg, #009e59 0%, #25c37e 100%);
 // contrast color to the primary
 // $tertiaryColor:
 $mainFgColor: #fff;

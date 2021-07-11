@@ -41,6 +41,21 @@ const Home = () => {
     <main className="home page-container">
       {/*hero section*/}
       <section id="home__hero-section" className="home__section">
+        <svg
+          id="home__hero-waves"
+          viewBox="0 0 1900 600"
+          // this is necessary to make sure that the SVG content adheres to the size of the container
+          preserveAspectRatio="xMidYMin slice"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+        >
+          <path
+            d="M919 0L760 600L0 600L0 0Z"
+            fill="#141c1fee"
+            stroke-linecap="round"
+            stroke-linejoin="miter"
+          ></path>
+        </svg>
         <div className="home__section-flex" id="home__hero-content">
           <h1 id="home__hero-heading" className="home__heading">
             Fundraising for restaurants{" "}

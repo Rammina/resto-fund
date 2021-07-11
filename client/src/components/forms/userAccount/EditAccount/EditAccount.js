@@ -59,7 +59,7 @@ const EditAccount = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Username",
+                  // placeholder: "Username",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",
@@ -81,7 +81,7 @@ const EditAccount = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Password",
+                  // placeholder: "Password",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",

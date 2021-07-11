@@ -92,7 +92,7 @@ const CreateProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Project Name",
+                  // placeholder: "Project Name",
                   className: "form__input",
                   maxLength: "60",
                   autoComplete: "off",
@@ -114,7 +114,7 @@ const CreateProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Target Goal (in USD)",
+                  // placeholder: "Target Goal (in USD)",
                   className: "form__input",
                   autoComplete: "off",
                   id: "create-project-target_goal-field",
@@ -135,7 +135,7 @@ const CreateProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Deadline",
+                  // placeholder: "Deadline",
                   className: "form__input",
                   autoComplete: "off",
                   id: "create-project-deadline-field",
@@ -155,7 +155,7 @@ const CreateProject = (props) => {
               props={{
                 formName: "project",
                 inputProps: {
-                  placeholder: "Description",
+                  // placeholder: "Description",
                   className: "form__input",
                   autoComplete: "off",
                   id: "create-project-description-field",
