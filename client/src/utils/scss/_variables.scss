@@ -15,7 +15,7 @@ $gradientButtonBgGradient: linear-gradient(90deg, #0aa863 0%, #2fcd88 100%);
 $gradientButtonBgGradientDim: linear-gradient(90deg, #009e59 0%, #25c37e 100%);
 // contrast color to the primary
 // $tertiaryColor:
-$mainFgColor: #fff;
+$mainFgColor: #fafdff;
 
 // $mainBgColor: #e8eae8;
 $mainBgColor: #ecefee;
@@ -61,66 +61,5 @@ $dangerImageFilter: invert(26%) sepia(26%) saturate(3064%) hue-rotate(327deg)
 // Textfield, forms, variables
 $textfieldFocusColor: #fffff2;
 
-// These are just notes below for developer use:
-
-// syntax
-// $variable: value;
-
-/* map structure
-  font-weights: (
-  "regular": 400,
-  "medium": 500,
-  "bold": 700
-  );
-*/
-
-/*
- & can be used for appending
-  .main {
-    width: 80%;
-    margin: 0 auto;
-
-    &__paragraph{
-      font-weight: map-get($font-weights, bold);
-    }
-  }
-
-  results to (CSS):
-  .main {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .main__paragraph{
-    font-weight: 700;
-  }
-
-  #{&} is interpolation
-  .main {
-    width: 80%;
-    margin: 0 auto;
-
-    #{&}__paragraph{
-      font-weight: map-get($font-weights, bold);
-
-      // appending :hover using &
-      &:hover {
-        color: pink;
-      }
-    }
-  }
-
-  results to (CSS):
-  .main {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .main .main__paragraph{
-    font-weight: 700;
-  }
-
-  .main .main__paragraph:hover{
-    color: pink;
-  }
-*/
+// size variables
+$profilePictureSize: 2.5rem;

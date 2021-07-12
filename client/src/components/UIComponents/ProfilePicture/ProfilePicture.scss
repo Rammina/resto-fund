@@ -1,0 +1,23 @@
+@import "../../../utils/scss/_variables.scss";
+
+.profile-picture__div {
+  display: block;
+  padding: 0;
+  border-radius: 50%;
+  height: $profilePictureSize;
+  width: $profilePictureSize;
+  &.navmenu {
+    height: 3.75rem;
+    padding: 0.625rem;
+  }
+}
+
+.profile-picture__img {
+  padding: 0;
+  border-radius: 50%;
+  height: $profilePictureSize;
+  width: $profilePictureSize;
+  &:hover {
+    cursor: pointer;
+  }
+}
