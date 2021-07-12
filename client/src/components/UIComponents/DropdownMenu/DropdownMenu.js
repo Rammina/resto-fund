@@ -41,12 +41,12 @@ const DropdownMenu = (props) => {
     console.log(e.target);
     if (dropdownMenuDiv && !dropdownMenuDiv.current.contains(e.target)) {
       console.log("clicking outside DropdownMenu");
-      props.onClose();
+      if (props.onClose) props.onClose();
     }
   };
 
   const handleResize = () => {
-    props.onClose();
+    if (props.onClose) props.onClose();
   };
 
   useEffect(() => {
