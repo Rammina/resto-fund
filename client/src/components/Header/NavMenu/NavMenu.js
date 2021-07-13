@@ -85,21 +85,21 @@ const NavMenu = (props) => {
             <h4 className="dropdown__user">{user && user.username}</h4>
           </div>
         </div>
-        <Link to={`/dashboard/profile`} className="dropdown__button">
+        {/*<Link to={`/dashboard/profile`} className="dropdown__button">
           Your profile
-        </Link>
+        </Link>*/}
         <Link to={`/dashboard/fundraising`} className="dropdown__button">
           Your fundraisers
         </Link>
         <Link to={`/dashboard/donations`} className="dropdown__button">
           Supported fundraisers
         </Link>
-        <button to={`/dashboard/`} className="dropdown__button">
+        {/*<button to={`/dashboard/`} className="dropdown__button">
           Toggle appearance: Dark
         </button>
         <Link to={`/dashboard/settings`} className="dropdown__button">
           Settings
-        </Link>
+        </Link>*/}
         <GoogleAuth
           className="dropdown__button"
           onClickHandler={userDropdownMenuOnCloseHandler}
