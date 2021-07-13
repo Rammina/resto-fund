@@ -82,7 +82,7 @@ const Home = () => {
             ))}
           </ul>
           <Link
-            to={`/allprojects`}
+            to={`/fundraisers`}
             className="home__link"
             id="home__projects-link"
           >

@@ -1,20 +1,27 @@
 import HamburgerImage from "../../../assets/icons/hamburger.png";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfilePicture from "../../UIComponents/ProfilePicture/ProfilePicture";
 import DropdownMenu from "../../UIComponents/DropdownMenu/DropdownMenu";
 import GoogleAuth from "../../../components/GoogleAuth/GoogleAuth";
 import CloseButton from "../../UIComponents/buttons/CloseButton";
-
+import { WindowContext } from "../../../AppContext";
 import "./NavMenu.scss";
 
 const NavMenu = (props) => {
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
+  const user = useSelector((state) => state.user.info);
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const [showUserDropdownMenu, setShowUserDropdownMenu] = useState(false);
+  const [showFundraisersDropdownMenu, setShowFundraisersDropdownMenu] =
+    useState(false);
+  const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
 
   const getNavMenuClass = () => (showNavMenu ? "show" : "hide");
+  const getUserProfilePictureClass = () =>
+    showUserDropdownMenu ? "active" : "";
 
   // event handler functions
   const navmenuOnOpenHandler = () => {
@@ -25,21 +32,38 @@ const NavMenu = (props) => {
     setShowNavMenu(false);
   };
 
+  const userProfilePictureonClickHandler = (e) => {
+    e.stopPropagation();
+    if (!showUserDropdownMenu) setShowUserDropdownMenu(true);
+    else setShowUserDropdownMenu(false);
+  };
+
+  const userDropdownMenuOnCloseHandler = () => {
+    setShowUserDropdownMenu(false);
+  };
+
   const renderFundraisersDropdownMenu = () => {
+    if (!showFundraisersDropdownMenu) return null;
     return (
       <DropdownMenu
         style={{ position: "absolute", top: "3.6rem", minWidth: "12rem" }}
       >
-        <Link to={``} className="dropdown__button">
+        <Link to={`/fundraisers`} className="dropdown__button">
           All fundraisers
         </Link>
-        <Link to={``} className="dropdown__button">
+        <Link
+          to={`/fundraisers?sort=amount_donated`}
+          className="dropdown__button"
+        >
           Top fundraisers
         </Link>
-        <Link to={``} className="dropdown__button">
+        <Link to={`/fundraisers?sort=created`} className="dropdown__button">
           New fundraisers
         </Link>
-        <Link to={``} className="dropdown__button">
+        <Link
+          to={`/fundraisers?filter=finished&sort=amount_donated`}
+          className="dropdown__button"
+        >
           Finished fundraisers
         </Link>
       </DropdownMenu>
@@ -47,28 +71,36 @@ const NavMenu = (props) => {
   };
 
   const renderUserDropdownMenu = () => {
+    if (!showUserDropdownMenu) return null;
     return (
-      <DropdownMenu style={{ right: "1rem", top: "3.6rem", minWidth: "12rem" }}>
-        <Link to={``} className="dropdown__button">
+      <DropdownMenu
+        style={{ right: "1rem", top: "3.6rem", minWidth: "12rem" }}
+        onClose={userDropdownMenuOnCloseHandler}
+      >
+        <div class="dropdown__item--flex" id="dropdown__profile">
+          <div class="dropdown__img-div">
+            <ProfilePicture className="user-dropdown" />
+          </div>
+          <div class="dropdown__text-div">
+            <h4 className="dropdown__user">{user.username}</h4>
+          </div>
+        </div>
+        <Link to={`/dashboard/profile`} className="dropdown__button">
           Your profile
         </Link>
-        <Link to={``} className="dropdown__button">
-          Dashboard
-        </Link>
-        <Link to={``} className="dropdown__button">
+        <Link to={`/dashboard/fundraising`} className="dropdown__button">
           Your fundraisers
         </Link>
-        <Link to={``} className="dropdown__button">
+        <Link to={`/dashboard/donations`} className="dropdown__button">
           Supported fundraisers
         </Link>
-        <Link to={``} className="dropdown__button">
+        <button to={`/dashboard/`} className="dropdown__button">
           Toggle appearance: Dark
-        </Link>
-        <Link to={``} className="dropdown__button">
+        </button>
+        <Link to={`/dashboard/settings`} className="dropdown__button">
           Settings
         </Link>
         <GoogleAuth className="dropdown__button" />
-        {/*<li className="dropdown__li"></li>*/}
       </DropdownMenu>
     );
   };
@@ -85,8 +117,13 @@ const NavMenu = (props) => {
         <Link to="/dashboard" className="navmenu__item">
           Dashboard
         </Link>{" "}
-        <GoogleAuth className="navmenu__item" />
-        <ProfilePicture className="navmenu" />
+        {!isNonMobileWidth && <GoogleAuth className="navmenu__item" />}
+        {isNonMobileWidth && (
+          <ProfilePicture
+            className={`navmenu ${getUserProfilePictureClass()}`}
+            onClick={userProfilePictureonClickHandler}
+          />
+        )}
       </>
     );
   // render component
@@ -126,7 +163,7 @@ const NavMenu = (props) => {
           <Link to="/" className="navmenu__item">
             Home
           </Link>
-          <Link to="/allprojects" className="navmenu__item">
+          <Link to="/fundraisers" className="navmenu__item">
             Fundraisers
           </Link>
           {renderConditionalItems()}
@@ -144,7 +181,7 @@ export default NavMenu;
     X
   </p>
   <section className="nav">
-    <Link to="/allprojects">New  Projects</Link>
+    <Link to="/fundraisers">New  Projects</Link>
     {!isSignedIn ?
     <Link to="/login">Login</Link> : null}
     {isSignedIn ? (

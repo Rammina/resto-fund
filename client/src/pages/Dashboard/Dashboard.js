@@ -1,27 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import Fundraising from "./Fundraising/Fundraising";
 import Donations from "./Donations/Donations";
 import Payout from "./Payout/Payout";
-
+import history from "../../history";
 import { getAllUserProjects } from "../../redux/actions/projectsActions";
 import { WindowContext } from "../../AppContext";
 import "./Dashboard.scss";
 
 const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
-  // should be opened by default in desktop mode
-  const [showFundraisingSection, setShowFundraisingSection] = useState(false);
-  const [showDonationsSection, setShowDonationsSection] = useState(false);
-  const [showPayoutSection, setShowPayoutSection] = useState(false);
   const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
+  const location = useLocation();
 
+  //TODO:  this needs reworking
+  /*
   const resizeHandler = () => {
-    console.log("listening to resize on dashboard");
-    console.log(`isNonMobileWidth is ${isNonMobileWidth}`);
     if (isNonMobileWidth && !(showDonationsSection || showPayoutSection))
       setShowFundraisingSection(true);
   };
+
 
   useEffect(() => {
     resizeHandler();
@@ -31,6 +29,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
       window.removeEventListener("resize", resizeHandler);
     };
   }, [isNonMobileWidth]);
+  */
 
   const getAllProjectsHandler = () => {
     //add a guard to prevent errors if user is not loaded yet
@@ -46,53 +45,56 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
 
   // class name manipulation / listeners
   const getFundraisingActiveClass = () =>
-    showFundraisingSection ? "active" : "";
-  const getDonationsActiveClass = () => (showDonationsSection ? "active" : "");
-  const getPayoutActiveClass = () => (showPayoutSection ? "active" : "");
+    location.pathname.includes("/fundraising") ? "active" : "";
+  const getDonationsActiveClass = () =>
+    location.pathname.includes("/donations") ? "active" : "";
+  const getPayoutActiveClass = () =>
+    location.pathname.includes("/payout") ? "active" : "";
 
   // event handlers
-  const closeAllSectionsHandler = () => {
-    setShowFundraisingSection(false);
-    setShowDonationsSection(false);
-    setShowPayoutSection(false);
-  };
-
-  const fundraisingButtonOnClickHandler = () => {
-    closeAllSectionsHandler();
-    setShowFundraisingSection(true);
-  };
-  const donationsButtonOnClickHandler = () => {
-    closeAllSectionsHandler();
-    setShowDonationsSection(true);
-  };
-  const payoutButtonOnClickHandler = () => {
-    closeAllSectionsHandler();
-    setShowPayoutSection(true);
+  const backToDashboardHandler = () => {
+    history.push("/dashboard");
   };
 
   const renderPayoutSection = () => {
-    if (!showPayoutSection) return null;
-    return <Payout onClose={closeAllSectionsHandler} />;
+    return (
+      <Route path="/dashboard/payout" exact>
+        <Payout onClose={backToDashboardHandler} />
+      </Route>
+    );
   };
 
   const renderFundraisingSection = () => {
-    if (!showFundraisingSection) return null;
+    // do not automatically display this on the dashboard link when in Mobile width
+    if (!isNonMobileWidth)
+      return (
+        <Route path="/dashboard/fundraising" exact>
+          <Fundraising
+            user={user}
+            projects={userProjects.owned}
+            onClose={backToDashboardHandler}
+          />
+        </Route>
+      );
     return (
-      <Fundraising
-        user={user}
-        projects={userProjects.owned}
-        onClose={closeAllSectionsHandler}
-      />
+      <Route path={["/dashboard", "/dashboard/fundraising"]} exact>
+        <Fundraising
+          user={user}
+          projects={userProjects.owned}
+          onClose={backToDashboardHandler}
+        />
+      </Route>
     );
   };
   const renderDonationsSection = () => {
-    if (!showDonationsSection) return null;
     return (
-      <Donations
-        user={user}
-        projects={userProjects.supported}
-        onClose={closeAllSectionsHandler}
-      />
+      <Route path="/dashboard/donations" exact>
+        <Donations
+          user={user}
+          projects={userProjects.supported}
+          onClose={backToDashboardHandler}
+        />
+      </Route>
     );
   };
 
@@ -102,37 +104,36 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
         <div className="dashboard__flex-outer-container">
           <section className="dashboard__menu-container">
             <ul className="dashboard__menu-items">
-              <button
+              <Link
+                to="/dashboard/fundraising"
                 className={`dashboard__menu-button ${getFundraisingActiveClass()}`}
-                onClick={fundraisingButtonOnClickHandler}
               >
                 <li
                   className={`dashboard__menu-item ${getFundraisingActiveClass()}`}
                 >
                   Fundraising
                 </li>
-              </button>
-              <button
+              </Link>
+              <Link
+                to="/dashboard/donations"
                 className={`dashboard__menu-button ${getDonationsActiveClass()}`}
-                onClick={donationsButtonOnClickHandler}
               >
                 <li
                   className={`dashboard__menu-item ${getDonationsActiveClass()}`}
                 >
                   Donations
                 </li>
-              </button>
-              {/*note: if there is not enough time this can be removed */}
-              <button
+              </Link>
+              <Link
+                to="/dashboard/payout"
                 className={`dashboard__menu-button ${getPayoutActiveClass()}`}
-                onClick={payoutButtonOnClickHandler}
               >
                 <li
                   className={`dashboard__menu-item ${getPayoutActiveClass()}`}
                 >
                   Payout
                 </li>
-              </button>
+              </Link>
             </ul>
           </section>
           {renderPayoutSection()}

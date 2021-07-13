@@ -92,10 +92,10 @@ const App = (props) => {
             <UnauthenticatedRoute path="/register" exact>
               <Register />
             </UnauthenticatedRoute>
-            <AuthenticatedRoute path="/dashboard" exact>
-              <Dashboard />
+            <AuthenticatedRoute path="/dashboard">
+              <Dashboard></Dashboard>
             </AuthenticatedRoute>
-            <Route path="/allprojects" exact>
+            <Route path="/fundraisers" exact>
               <AllProjects />
             </Route>
             <Route path="/projects/:projectId" exact>

@@ -80,7 +80,7 @@ const Fundraising = ({ user, projects, onClose }) => {
             onClickHandler={onClose}
           />
 
-          <h1 className="dashboard-content__heading">
+          <h1 className="dashboard-content__heading fundraising">
             My Fundraising Projects
           </h1>
           {renderDesktopCreateButton()}

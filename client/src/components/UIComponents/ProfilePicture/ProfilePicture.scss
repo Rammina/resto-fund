@@ -9,6 +9,7 @@
   &.navmenu {
     height: 3.75rem;
     padding: 0.625rem;
+    width: fit-content;
   }
 }
 
@@ -19,5 +20,8 @@
   width: $profilePictureSize;
   &:hover {
     cursor: pointer;
+  }
+  &.active {
+    border: solid 1px #0004;
   }
 }

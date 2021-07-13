@@ -19,7 +19,7 @@ const Donations = ({ user, projects, onClose }) => {
             You have not yet supported any fundraising projects.<br></br> Check
             out our{" "}
             <Link
-              to={`/allprojects`}
+              to={`/fundraisers`}
               className="dashboard-projects__clickable-text"
             >
               list of fundraising projects
