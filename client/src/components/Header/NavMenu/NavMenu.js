@@ -82,7 +82,7 @@ const NavMenu = (props) => {
             <ProfilePicture className="user-dropdown" />
           </div>
           <div class="dropdown__text-div">
-            <h4 className="dropdown__user">{user.username}</h4>
+            <h4 className="dropdown__user">{user && user.username}</h4>
           </div>
         </div>
         <Link to={`/dashboard/profile`} className="dropdown__button">
@@ -100,7 +100,10 @@ const NavMenu = (props) => {
         <Link to={`/dashboard/settings`} className="dropdown__button">
           Settings
         </Link>
-        <GoogleAuth className="dropdown__button" />
+        <GoogleAuth
+          className="dropdown__button"
+          onClickHandler={userDropdownMenuOnCloseHandler}
+        />
       </DropdownMenu>
     );
   };
@@ -117,7 +120,12 @@ const NavMenu = (props) => {
         <Link to="/dashboard" className="navmenu__item">
           Dashboard
         </Link>{" "}
-        {!isNonMobileWidth && <GoogleAuth className="navmenu__item" />}
+        {!isNonMobileWidth && (
+          <GoogleAuth
+            className="navmenu__item"
+            onClickHandler={navmenuOnCloseHandler}
+          />
+        )}
         {isNonMobileWidth && (
           <ProfilePicture
             className={`navmenu ${getUserProfilePictureClass()}`}

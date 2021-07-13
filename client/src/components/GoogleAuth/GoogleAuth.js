@@ -77,6 +77,7 @@ class GoogleAuth extends React.Component {
   onSignOutClick = async () => {
     await this.auth.signOut();
     await this.props.googleSignOut();
+    if (this.props.onClickHandler) this.props.onClickHandler();
     history.push("/login");
   };
 
