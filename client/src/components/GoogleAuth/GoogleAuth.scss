@@ -32,14 +32,16 @@
     background-color: #0001;
   }
   &.dropdown__button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     background-color: #0000;
     color: $mainBlack;
-    text-align: left;
-    padding: 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    // text-align: left;
+    padding: 0.7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 0;
     min-height: 2.5rem;
     border-radius: 3px;
