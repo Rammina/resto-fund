@@ -94,6 +94,9 @@ const NavMenu = (props) => {
         <Link to={`/dashboard/donations`} className="dropdown__button">
           Supported fundraisers
         </Link>
+        <Link to={`/dashboard/payout`} className="dropdown__button">
+          Payout
+        </Link>
         {/*<button to={`/dashboard/`} className="dropdown__button">
           Toggle appearance: Dark
         </button>
