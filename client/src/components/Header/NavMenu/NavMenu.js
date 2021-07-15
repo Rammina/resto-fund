@@ -1,4 +1,7 @@
 import HamburgerImage from "../../../assets/icons/hamburger.png";
+import DonationImage from "../../../assets/icons/donation.png";
+import SupportImage from "../../../assets/icons/support.png";
+import LogoutImage from "../../../assets/icons/logout.png";
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -89,10 +92,20 @@ const NavMenu = (props) => {
           Your profile
         </Link>*/}
         <Link to={`/dashboard/fundraising`} className="dropdown__button">
-          Your fundraisers
+          <img
+            className="dropdown__button-img"
+            src={DonationImage}
+            alt="Donation Icon"
+          />
+          <span>Your fundraisers</span>
         </Link>
         <Link to={`/dashboard/donations`} className="dropdown__button">
-          Supported fundraisers
+          <img
+            className="dropdown__button-img"
+            src={SupportImage}
+            alt="Support Icon"
+          />
+          <span>Supported fundraisers</span>
         </Link>
         <Link to={`/dashboard/payout`} className="dropdown__button">
           Payout
@@ -106,6 +119,14 @@ const NavMenu = (props) => {
         <GoogleAuth
           className="dropdown__button"
           onClickHandler={userDropdownMenuOnCloseHandler}
+          img={
+            <img
+              id="dropdown__logout-img"
+              className="dropdown__button-img"
+              src={LogoutImage}
+              alt="Logout Icon"
+            />
+          }
         />
       </DropdownMenu>
     );

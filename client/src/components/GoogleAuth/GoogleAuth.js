@@ -82,14 +82,16 @@ class GoogleAuth extends React.Component {
   };
 
   renderGoogleSignButton = (text, cb) => {
-    const renderIcon = () =>
-      !this.props.className ? (
+    const renderIcon = () => {
+      if (this.props.img) return this.props.img;
+      return !this.props.className ? (
         <img
           className="google-icon-button-img"
           src={GoogleIconImg}
           alt="Google Icon"
         />
       ) : null;
+    };
 
     return (
       <button
@@ -118,7 +120,7 @@ class GoogleAuth extends React.Component {
           className={`ui primary google button ${this.props.className || null}`}
           onClick={this.onSignOutClick}
         >
-          Logout
+          {this.props.img || null} Logout
         </button>
       );
     } else {
