@@ -6,10 +6,12 @@ import ReactDOM from "react-dom";
 const DropdownMenu = (props) => {
   const [menuLeft, setMenuLeft] = useState(-200);
   const [menuTop, setMenuTop] = useState(-200);
+
   let dropdownMenuDiv = useRef(null);
 
   let clickCoordsX;
   let clickCoordsY;
+  // const getClassName = () => (props.className ? props.className : "");
 
   // updated positionMenu function
   const positionMenu = () => {
@@ -67,10 +69,18 @@ const DropdownMenu = (props) => {
     positionMenu();
   }, [dropdownMenuDiv.current]);
 
+  const menuOnMouseEnterHandler = (e) => {
+    if (props.onMouseEnterStopPropagation) e.stopPropagation();
+  };
+
   const content = (
-    <div className={`dropdown__outer-div ${props.className || ""}`}>
+    <div
+      className={`dropdown__outer-div ${props.className || ""}`}
+      onMouseEnter={menuOnMouseEnterHandler}
+    >
       <div
         className={`dropdown__middle-div ${props.className || ""}`}
+        onMouseEnter={menuOnMouseEnterHandler}
         style={
           // it is either custom style or based on click/hover event
           props.style || {
@@ -82,12 +92,20 @@ const DropdownMenu = (props) => {
         ref={dropdownMenuDiv}
         autoFocus={true}
       >
-        <ul className={`dropdown__ul ${props.className || ""}`}>
+        <ul
+          className={`dropdown__ul ${props.className || ""}`}
+          onMouseEnter={menuOnMouseEnterHandler}
+        >
           {props.children}
         </ul>
       </div>
     </div>
   );
+
+  // normal rendering without portal
+  if (props.noReactPortal) {
+    return content;
+  }
   // rendering via portal
   return ReactDOM.createPortal(
     content,

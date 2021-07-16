@@ -31,7 +31,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
   }, [isNonMobileWidth]);
   */
 
-  const getAllProjectsHandler = () => {
+  const getProjectListHandler = () => {
     //add a guard to prevent errors if user is not loaded yet
     if (!user || !user.id) return null;
     console.log(getAllUserProjects);
@@ -40,7 +40,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
 
   // run this only after rendering the component and after user is loaded
   useEffect(() => {
-    getAllProjectsHandler();
+    getProjectListHandler();
   }, [user]);
 
   // class name manipulation / listeners

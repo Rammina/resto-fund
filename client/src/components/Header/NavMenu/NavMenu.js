@@ -2,6 +2,7 @@ import HamburgerImage from "../../../assets/icons/hamburger.png";
 import DonationImage from "../../../assets/icons/donation.png";
 import SupportImage from "../../../assets/icons/support.png";
 import LogoutImage from "../../../assets/icons/logout.png";
+import DownArrowImage from "../../../assets/icons/down-arrow.png";
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -25,6 +26,8 @@ const NavMenu = (props) => {
   const getNavMenuClass = () => (showNavMenu ? "show" : "hide");
   const getUserProfilePictureClass = () =>
     showUserDropdownMenu ? "active" : "";
+  const getFundraisersDropdownActiveClass = () =>
+    showFundraisersDropdownMenu ? "show" : "hide";
 
   // event handler functions
   const navmenuOnOpenHandler = () => {
@@ -33,6 +36,13 @@ const NavMenu = (props) => {
 
   const navmenuOnCloseHandler = () => {
     setShowNavMenu(false);
+  };
+
+  const fundraiserOnMouseEnterHandler = () => {
+    setShowFundraisersDropdownMenu(true);
+  };
+  const fundraiserOnMouseLeaveHandler = () => {
+    setShowFundraisersDropdownMenu(false);
   };
 
   const userProfilePictureonClickHandler = (e) => {
@@ -45,27 +55,44 @@ const NavMenu = (props) => {
     setShowUserDropdownMenu(false);
   };
 
+  const stopPropagationOnMouseEnterHandler = (e) => e.stopPropagation();
+
   const renderFundraisersDropdownMenu = () => {
-    if (!showFundraisersDropdownMenu) return null;
+    // if (!showFundraisersDropdownMenu) return null;
     return (
       <DropdownMenu
-        style={{ position: "absolute", top: "3.6rem", minWidth: "12rem" }}
+        style={{
+          position: "absolute",
+          left: "7.4rem",
+          top: "3.6rem",
+          minWidth: "12rem",
+        }}
+        noReactPortal={true}
+        onMouseEnterStopPropagation={true}
+        className={`dropdown--position-absolute ${getFundraisersDropdownActiveClass()}`}
       >
-        <Link to={`/fundraisers`} className="dropdown__button">
+        <Link
+          to={`/fundraisers`}
+          className="dropdown__button dropdown--position-absolute"
+        >
           All fundraisers
         </Link>
         <Link
           to={`/fundraisers?sort=amount_donated`}
-          className="dropdown__button"
+          className="dropdown__button dropdown--position-absolute"
         >
           Top fundraisers
         </Link>
-        <Link to={`/fundraisers?sort=created`} className="dropdown__button">
+        <Link
+          to={`/fundraisers?sort=created`}
+          className="dropdown__button dropdown--position-absolute"
+        >
           New fundraisers
         </Link>
         <Link
           to={`/fundraisers?filter=finished&sort=amount_donated`}
-          className="dropdown__button"
+          className="dropdown__button dropdown--position-absolute"
+          onMouseEnter={stopPropagationOnMouseEnterHandler}
         >
           Finished fundraisers
         </Link>
@@ -77,7 +104,12 @@ const NavMenu = (props) => {
     if (!showUserDropdownMenu) return null;
     return (
       <DropdownMenu
-        style={{ right: "1rem", top: "3.6rem", minWidth: "12rem" }}
+        style={{
+          position: "fixed",
+          right: "1rem",
+          top: "3.6rem",
+          minWidth: "12rem",
+        }}
         onClose={userDropdownMenuOnCloseHandler}
       >
         <div class="dropdown__item--flex" id="dropdown__profile">
@@ -86,6 +118,7 @@ const NavMenu = (props) => {
           </div>
           <div class="dropdown__text-div">
             <h4 className="dropdown__user">{user && user.username}</h4>
+            <span className="dropdown__span">Registered User</span>
           </div>
         </div>
         {/*<Link to={`/dashboard/profile`} className="dropdown__button">
@@ -195,8 +228,19 @@ const NavMenu = (props) => {
           <Link to="/" className="navmenu__item">
             Home
           </Link>
-          <Link to="/fundraisers" className="navmenu__item">
-            Fundraisers
+          <Link
+            to="/fundraisers"
+            className="navmenu__item button--icon"
+            onMouseEnter={fundraiserOnMouseEnterHandler}
+            onMouseLeave={fundraiserOnMouseLeaveHandler}
+          >
+            <span className="navmenu__item-span">Fundraisers</span>
+            <img
+              class="navmenu__item-img button__icon"
+              src={DownArrowImage}
+              alt="down arrow image"
+            />
+            {renderFundraisersDropdownMenu()}
           </Link>
           {renderConditionalItems()}
         </ul>

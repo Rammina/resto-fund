@@ -25,19 +25,51 @@ const updateProjectStatus = async (project) => {
 
 // retrieve projects list (not user specific)
 exports.get_all_projects = async (req, res) => {
-  console.log("retrieving all projects");
+  //TODO: add sort and filter depending on req.query
+  const { sort, filter, limit } = req.query;
+  console.log(sort);
+  console.log(filter);
+  console.log(limit);
+  console.log("retrieving list of projects");
   try {
-    const projects = await Project.find()
-      // exclude failed projects from all projects list, because users can't donate anyway
-      .where({ status: { $ne: "failed" } })
-      .sort({ amount_donated: -1 })
-      .limit(
-        // guard against string variables being passed in
-        Number(req.query.limit || 0) ||
-          PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
-          15
-      )
-      .populate("creator donors");
+    let projects = null;
+    if (sort === "created") {
+      projects = await Project.find()
+        // exclude failed projects from all projects list, because users can't donate anyway
+        .where({ status: { $ne: "failed" } })
+        // sort by creation date (newest first)
+        .sort({ created: -1 })
+        .limit(
+          // guard against string variables being passed in
+          Number(limit || 0) ||
+            PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
+            15
+        )
+        .populate("creator donors");
+    } else if (filter === "finished") {
+      // includes filtered projects
+      projects = await Project.find()
+        .sort({ amount_donated: -1 })
+        .limit(
+          // guard against string variables being passed in
+          Number(limit || 0) ||
+            PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
+            15
+        )
+        .populate("creator donors");
+    } else {
+      projects = await Project.find()
+        // exclude failed projects from all projects list, because users can't donate anyway
+        .where({ status: { $ne: "failed" } })
+        .sort({ amount_donated: -1 })
+        .limit(
+          // guard against string variables being passed in
+          Number(limit || 0) ||
+            PROJECTS_PER_BATCH /* * (retrievalCount + 1)*/ ||
+            15
+        )
+        .populate("creator donors");
+    }
     if (!projects) throw Error("Unable to retrieve projects.");
 
     for (let project of projects) {

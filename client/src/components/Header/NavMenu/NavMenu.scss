@@ -81,6 +81,13 @@
   }
 }
 
+.navmenu__item-img.button__icon {
+  margin-left: 0.8rem;
+  filter: $whiteIconImageFilter;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
 @include media-md {
   #navmenu__hamburger,
   .navmenu__title-close-container {

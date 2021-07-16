@@ -6,6 +6,7 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import queryString from "query-string";
 import { getProject } from "../../redux/actions/projectsActions";
+import { actionShowLoader } from "../../redux/actions/loaderActions";
 import { CLOSE_PROJECT } from "../../redux/actions/types";
 import history from "../../history";
 import { capitalizeFirstLetter, convertToMDY } from "../../helpers";

@@ -12,7 +12,7 @@ import Register from "./pages/Register/Register";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
-import AllProjects from "./pages/AllProjects/AllProjects";
+import ProjectList from "./pages/ProjectList/ProjectList";
 import Project from "./pages/Project/Project";
 import GoogleAuth from "./components/GoogleAuth/GoogleAuth";
 // Used for URL redirection based on authentication status
@@ -96,7 +96,7 @@ const App = (props) => {
               <Dashboard></Dashboard>
             </AuthenticatedRoute>
             <Route path="/fundraisers" exact>
-              <AllProjects />
+              <ProjectList />
             </Route>
             <Route path="/projects/:projectId" exact>
               <Project />

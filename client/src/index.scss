@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import "utils/scss/variables.scss";
 @import "utils/scss/config.scss";
 
@@ -72,6 +71,16 @@ button {
 button:disabled,
 input:disabled {
   cursor: not-allowed;
+}
+// button with icon
+.button--icon {
+  display: flex;
+  align-items: center;
+}
+// icon inside a button
+.button__icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 li {

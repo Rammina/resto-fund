@@ -16,7 +16,9 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import CreateProjectButton from "../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
-import { getAllProjects } from "../../redux/actions/projectsActions";
+import { getProjectList } from "../../redux/actions/projectsActions";
+import { actionShowLoader } from "../../redux/actions/loaderActions";
+import { CLEAR_PROJECT_LIST } from "../../redux/actions/types";
 
 import "./Home.scss";
 
@@ -27,14 +29,21 @@ const Home = () => {
   const projects = useSelector((state) => state.allProjects);
   const user = useSelector((state) => state.user.info);
 
-  const getAllProjectsHandler = () => {
+  const getProjectListHandler = () => {
     // place a limit of 3 projects only because homepage doesn't need all of them listed
-    dispatch(getAllProjects(3));
+    dispatch(getProjectList({ limit: 3 }));
   };
 
-  // retrieve projects after rendering the component
+  const unmountProjectListHandler = () => {
+    dispatch({ type: CLEAR_PROJECT_LIST });
+  };
+
+  // retrieve all projects after the component renders
   useEffect(() => {
-    getAllProjectsHandler();
+    getProjectListHandler();
+    return () => {
+      unmountProjectListHandler();
+    };
   }, []);
 
   return (

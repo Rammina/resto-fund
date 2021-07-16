@@ -49,28 +49,33 @@ export const getProject = (projectId) => (dispatch /* getState*/) => {
     });
 };
 
-export const getAllProjects = (limit) => (dispatch /*, getState*/) => {
-  console.log("getting the list of all projects");
-  serverRest
-    .get(`/projects?limit=${limit || 0}`)
-    .then((res) => {
-      let projects = res.data;
-      console.log(projects);
-      dispatch({
-        type: GET_ALL_PROJECTS_SUCCESS,
-        payload: /*sortedData ||*/ projects,
+export const getProjectList =
+  ({ limit, sort, filter }) =>
+  (dispatch /*, getState*/) => {
+    console.log("getting the list of all projects");
+    const queryString = `limit=${limit || 0}${sort ? "sort=" + sort : ""}${
+      filter ? "filter=" + filter : ""
+    }`;
+    serverRest
+      .get(`/projects?${queryString || ""}`)
+      .then((res) => {
+        let projects = res.data;
+        console.log(projects);
+        dispatch({
+          type: GET_ALL_PROJECTS_SUCCESS,
+          payload: /*sortedData ||*/ projects,
+        });
+        dispatch(clearErrors());
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(err.response);
+        dispatch(returnErrors(err.response.data, err.response.status));
+        dispatch({
+          type: GET_ALL_PROJECTS_FAIL,
+        });
       });
-      dispatch(clearErrors());
-    })
-    .catch((err) => {
-      console.log(err);
-      console.log(err.response);
-      dispatch(returnErrors(err.response.data, err.response.status));
-      dispatch({
-        type: GET_ALL_PROJECTS_FAIL,
-      });
-    });
-};
+  };
 
 export const getAllUserProjects = (id) => (dispatch, getState) => {
   console.log("getting the list of all projects");

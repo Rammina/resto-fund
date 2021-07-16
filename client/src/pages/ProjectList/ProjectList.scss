@@ -1,0 +1,57 @@
+@import "../../utils/scss/_variables";
+@import "../../utils/scss/_config";
+
+.projectslist-page__section {
+  padding: 0.5rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.projectslist-page__heading {
+  font-size: 1.5rem;
+  text-align: center;
+}
+#projectslist-page__loader-heading {
+  margin-top: 2rem;
+}
+.projectslist-page__p {
+  max-width: 24rem;
+  margin: 2rem auto;
+  margin-bottom: 1rem;
+  // margin-top: 2rem;
+  font-size: 1.1rem;
+}
+.projectslist-page__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  // align-items:
+}
+
+.projectslist-page__item {
+  width: 100%;
+  margin: 0.8rem;
+}
+@media screen and (min-width: 600px) {
+  .projectslist-page__item {
+    width: 45%;
+  }
+}
+
+@include media-md {
+  .projectslist-page__p {
+    text-align: center;
+    max-width: none;
+  }
+}
+@include media-lg {
+  .projectslist-page__item {
+    width: 30%;
+  }
+}
+
+@include media-xl {
+}
