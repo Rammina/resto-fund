@@ -38,9 +38,8 @@ const ProjectList = (props) => {
 
   const renderMainHeading = () => {
     const { sort, filter } = queryString.parse(location.search);
-
     if (sort === "amount_donated" && !filter) return "Top Fundraising Projects";
-    else if (sort === "created") return "New Fundraising Projects";
+    else if (sort === "created") return "Newest Fundraising Projects";
     else if (sort === "amount_donated" && filter === "finished")
       return "Finished Fundraising Projects";
     return "All Fundraising Projects";

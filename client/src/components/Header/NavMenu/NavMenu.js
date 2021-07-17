@@ -3,6 +3,8 @@ import DonationImage from "../../../assets/icons/donation.png";
 import SupportImage from "../../../assets/icons/support.png";
 import LogoutImage from "../../../assets/icons/logout.png";
 import DownArrowImage from "../../../assets/icons/down-arrow.png";
+// <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+import MoneyImage from "../../../assets/icons/money.png";
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -87,7 +89,7 @@ const NavMenu = (props) => {
           to={`/fundraisers?sort=created`}
           className="dropdown__button dropdown--position-absolute"
         >
-          New fundraisers
+          Newest fundraisers
         </Link>
         <Link
           to={`/fundraisers?filter=finished&sort=amount_donated`}
@@ -141,7 +143,12 @@ const NavMenu = (props) => {
           <span>Supported fundraisers</span>
         </Link>
         <Link to={`/dashboard/payout`} className="dropdown__button">
-          Payout
+          <img
+            className="dropdown__button-img"
+            src={MoneyImage}
+            alt="Money Icon"
+          />
+          <span>Payout</span>
         </Link>
         {/*<button to={`/dashboard/`} className="dropdown__button">
           Toggle appearance: Dark
