@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import queryString from "query-string";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
+import CreateProjectButton from "../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
+import CallToActionSection from "../../components/CallToActionSection/CallToActionSection";
 import { CLEAR_PROJECT_LIST } from "../../redux/actions/types";
 import { getProjectList } from "../../redux/actions/projectsActions";
 import { actionShowLoader } from "../../redux/actions/loaderActions";
@@ -71,9 +73,20 @@ const ProjectList = (props) => {
                 <ProjectItem project={project} />
               </li>
             ))
-          )}{" "}
+          )}
         </ul>
       </section>
+      <CallToActionSection
+        headingText="Interested in fundraising?"
+        paragraphText=""
+        actionButton={
+          <CreateProjectButton
+            text="Start a Fundraiser"
+            className="cta-section cta-section__fundraising-button"
+            isMobile={false}
+          />
+        }
+      />
     </main>
   );
 };

@@ -1,0 +1,53 @@
+@import "../../utils/scss/_variables";
+@import "../../utils/scss/_config";
+.cta-section {
+  padding: 1rem 0.5rem;
+  background-color: $secondaryBgColor;
+  // max-width: ;
+}
+.cta-section__content {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.cta-section__heading {
+  margin: 1rem;
+  text-align: center;
+}
+.btn.btn--create.cta-section__fundraising-button {
+  z-index: 0;
+  position: relative;
+  width: fit-content;
+  min-height: 0;
+  height: 3rem;
+  right: 0;
+  bottom: 0;
+  font-size: 1rem;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0 1.75rem;
+  font-weight: 700;
+  margin: 1rem auto;
+  background: $gradientButtonBgGradient;
+  &:hover {
+    background: $gradientButtonBgGradientDim;
+  }
+}
+
+@include media-md {
+  .cta-section {
+    padding: 1rem 0.5rem;
+  }
+  .cta-section__heading {
+    font-size: 1.6rem;
+  }
+  .btn.btn--create.cta-section__fundraising-button {
+    margin: 2rem auto;
+  }
+}
+
+@include media-lg {
+  .cta-section {
+    padding: 3rem 0.5rem;
+  }
+}

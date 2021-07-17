@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import CreateProjectButton from "../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
+import CallToActionSection from "../../components/CallToActionSection/CallToActionSection";
 import { getProjectList } from "../../redux/actions/projectsActions";
 import { actionShowLoader } from "../../redux/actions/loaderActions";
 import { CLEAR_PROJECT_LIST } from "../../redux/actions/types";
@@ -206,19 +207,18 @@ const Home = () => {
         </div>
       </section>
 
-      {/*prompt section*/}
-      <section className="home__section">
-        <div className="home__section-content">
-          <h2 className="home__heading">Interested in fundraising?</h2>{" "}
-          <hr className="hr" />
+      <CallToActionSection
+        headingText="Interested in fundraising?"
+        paragraphText=""
+        // style={{background-color: ;}}
+        actionButton={
           <CreateProjectButton
-            id="home__hero-button"
             text="Start a Fundraiser"
-            className="home home__fundraising-button"
+            className="cta-section cta-section__fundraising-button"
             isMobile={false}
           />
-        </div>
-      </section>
+        }
+      />
     </main>
   );
 };

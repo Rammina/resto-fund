@@ -1,3 +1,7 @@
+import DonationImage from "../../assets/icons/donation.png";
+import SupportImage from "../../assets/icons/support.png";
+import MoneyImage from "../../assets/icons/money.png";
+
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
@@ -111,7 +115,12 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                 <li
                   className={`dashboard__menu-item ${getFundraisingActiveClass()}`}
                 >
-                  Fundraising
+                  <img
+                    class="dashboard__menu-img"
+                    src={SupportImage}
+                    alt="support icon"
+                  />
+                  <span>Fundraising</span>
                 </li>
               </Link>
               <Link
@@ -121,7 +130,12 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                 <li
                   className={`dashboard__menu-item ${getDonationsActiveClass()}`}
                 >
-                  Donations
+                  <img
+                    class="dashboard__menu-img"
+                    src={DonationImage}
+                    alt="donation icon"
+                  />
+                  <span>Donations</span>
                 </li>
               </Link>
               <Link
@@ -131,7 +145,12 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                 <li
                   className={`dashboard__menu-item ${getPayoutActiveClass()}`}
                 >
-                  Payout
+                  <img
+                    class="dashboard__menu-img"
+                    src={MoneyImage}
+                    alt="money icon"
+                  />
+                  <span>Payout</span>
                 </li>
               </Link>
             </ul>

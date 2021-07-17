@@ -1,10 +1,10 @@
 import HamburgerImage from "../../../assets/icons/hamburger.png";
 import DonationImage from "../../../assets/icons/donation.png";
 import SupportImage from "../../../assets/icons/support.png";
+import MoneyImage from "../../../assets/icons/money.png";
 import LogoutImage from "../../../assets/icons/logout.png";
 import DownArrowImage from "../../../assets/icons/down-arrow.png";
 // <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-import MoneyImage from "../../../assets/icons/money.png";
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";

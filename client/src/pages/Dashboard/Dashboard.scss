@@ -39,7 +39,16 @@
 }
 
 .dashboard__menu-item {
+  display: flex;
+  align-items: center;
   color: $secondaryBlack;
+}
+
+.dashboard__menu-img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  filter: $blackIconImageFilterLight;
 }
 
 .dashboard__content {
