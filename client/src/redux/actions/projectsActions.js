@@ -53,7 +53,7 @@ export const getProjectList =
   ({ limit, sort, filter }) =>
   (dispatch /*, getState*/) => {
     console.log("getting the list of all projects");
-    const queryString = `limit=${limit || 0}${sort ? "sort=" + sort : ""}${
+    const queryString = `limit=${limit || 0}&${sort ? "sort=" + sort : ""}&${
       filter ? "filter=" + filter : ""
     }`;
     serverRest
