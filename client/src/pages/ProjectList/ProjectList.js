@@ -28,11 +28,13 @@ const ProjectList = (props) => {
 
   // retrieve all projects after the component renders
   useEffect(() => {
+    // make sure to refresh the projects list if query string changes to prevent duplicate results
+    unmountProjectListHandler();
     getProjectListHandler();
     return () => {
       unmountProjectListHandler();
     };
-  }, []);
+  }, [location.search]);
 
   const renderMainHeading = () => {
     const { sort, filter } = queryString.parse(location.search);
