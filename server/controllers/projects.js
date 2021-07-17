@@ -48,7 +48,7 @@ exports.get_all_projects = async (req, res) => {
         .populate("creator donors");
     } else if (filter === "finished") {
       // includes filtered projects
-      projects = await Project.find()
+      projects = await Project.find({ status: "completed" || "failed" })
         .sort({ amount_donated: -1 })
         .limit(
           // guard against string variables being passed in
