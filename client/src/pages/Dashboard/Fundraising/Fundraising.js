@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import BackButton from "../../../components/UIComponents/buttons/BackButton";
 import ProjectItem from "../../../components/ProjectItem/ProjectItem";
-import "./Fundraising.scss";
+
 import CreateProjectButton from "../../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
 import CreateProjectForm from "../../../components/forms/project/CreateProject/CreateProject";
 import { WindowContext } from "../../../AppContext";
+import history from "../../../history";
+import "./Fundraising.scss";
 
 const Fundraising = ({ user, projects, onClose }) => {
   const [isCreateProjectModalShown, setIsCreateProjectModalShown] =
     useState(false);
   const { isNonMobileWidth, isNonMobileHeight } = useContext(WindowContext);
+
+  useEffect(() => {
+    history.push("/dashboard/fundraising"); /*return () => {}*/
+  }, []);
 
   const createProjectModalOnOpenHandler = () => {
     setIsCreateProjectModalShown(true);
@@ -63,7 +69,7 @@ const Fundraising = ({ user, projects, onClose }) => {
           <li className="dashboard-projects__item" key={project.id || index}>
             <ProjectItem project={project} className="dashboard" />
           </li>
-        ))}{" "}
+        ))}
       </ul>
     );
   };

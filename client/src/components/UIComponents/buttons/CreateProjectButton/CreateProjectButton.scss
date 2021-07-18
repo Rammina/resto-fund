@@ -35,11 +35,16 @@
     right: 0;
     bottom: 0;
     font-size: 1rem;
+    font-weight: 700;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     margin-top: 1rem;
-    // margin-left: auto;
+    background: $gradientButtonBgGradient;
+
+    &:hover {
+      background: $gradientButtonBgGradientDim;
+    }
   }
 }
 

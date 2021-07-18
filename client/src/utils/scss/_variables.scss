@@ -9,10 +9,16 @@ $primaryColorTranslucent: #0aa86340;
 // #bee8d5
 // analogous or different brightness / saturation color to the primary
 $secondaryColor: #1fc278;
+$secondaryColorDark: #007162;
 
 $authPageBgGradient: linear-gradient(0deg, #aed8c5 0%, #deffec 100%);
 $gradientButtonBgGradient: linear-gradient(90deg, #0aa863 0%, #2fcd88 100%);
 $gradientButtonBgGradientDim: linear-gradient(90deg, #009e59 0%, #25c37e 100%);
+$gradientButtonBgGradientDimmer: linear-gradient(
+  90deg,
+  #009e59 0%,
+  #25c37e 100%
+);
 // contrast color to the primary
 // $tertiaryColor:
 $mainFgColor: #fafdff;

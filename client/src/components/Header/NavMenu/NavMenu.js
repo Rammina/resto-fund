@@ -1,7 +1,10 @@
 import HamburgerImage from "../../../assets/icons/hamburger.png";
+import HomeImage from "../../../assets/icons/home.png";
+import DashboardImage from "../../../assets/icons/dashboard.png";
 import DonationImage from "../../../assets/icons/donation.png";
 import SupportImage from "../../../assets/icons/support.png";
 import MoneyImage from "../../../assets/icons/money.png";
+import LoginImage from "../../../assets/icons/login.png";
 import LogoutImage from "../../../assets/icons/logout.png";
 import DownArrowImage from "../../../assets/icons/down-arrow.png";
 // <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -176,18 +179,32 @@ const NavMenu = (props) => {
   const renderConditionalItems = () =>
     !isSignedIn ? (
       <Link to="/login" className="navmenu__item">
-        Login
+        <img class="navmenu__item-img" src={LoginImage} alt="Login Image" />
+        <span>Login</span>
       </Link>
     ) : (
       <>
         {/*only allow access to dashboard & logout if user is signed in*/}
         <Link to="/dashboard" className="navmenu__item">
-          Dashboard
-        </Link>{" "}
+          <img
+            class="navmenu__item-img"
+            src={DashboardImage}
+            alt="Dashboard Image"
+          />
+          <span>Dashboard</span>
+        </Link>
         {!isNonMobileWidth && (
           <GoogleAuth
             className="navmenu__item"
             onClickHandler={navmenuOnCloseHandler}
+            img={
+              <img
+                id="navmenu__logout-img"
+                className="navmenu__item-img"
+                src={LogoutImage}
+                alt="Logout Icon"
+              />
+            }
           />
         )}
         {isNonMobileWidth && (
@@ -233,7 +250,8 @@ const NavMenu = (props) => {
         </div>
         <ul className="navmenu__items">
           <Link to="/" className="navmenu__item">
-            Home
+            <img class="navmenu__item-img" src={HomeImage} alt="Home Image" />
+            <span>Home</span>
           </Link>
           <Link
             to="/fundraisers"
@@ -241,6 +259,11 @@ const NavMenu = (props) => {
             onMouseEnter={fundraiserOnMouseEnterHandler}
             onMouseLeave={fundraiserOnMouseLeaveHandler}
           >
+            <img
+              class="navmenu__item-img"
+              src={SupportImage}
+              alt="Fundraisers Image"
+            />
             <span className="navmenu__item-span">Fundraisers</span>
             <img
               class="navmenu__item-img button__icon"

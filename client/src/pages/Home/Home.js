@@ -85,11 +85,17 @@ const Home = () => {
           <h2 className="home__heading">Top Fundraisers</h2>
           <hr className="hr" />
           <ul className="home__items">
-            {projects.map((project, index) => (
-              <li className="home__item" key={project.id || index}>
-                <ProjectItem project={project} />
-              </li>
-            ))}
+            {projects.length < 1 ? (
+              <h2 id="projects-loader__text" className="home__heading">
+                Loading fundraisers...
+              </h2>
+            ) : (
+              projects.map((project, index) => (
+                <li className="home__item" key={project.id || index}>
+                  <ProjectItem project={project} />
+                </li>
+              ))
+            )}
           </ul>
           <Link
             to={`/fundraisers`}

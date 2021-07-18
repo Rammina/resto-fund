@@ -21,7 +21,7 @@ const Payout = ({ onClose }) => {
           <p className="dashboard-content__p">
             If you would like to receive payment for the donations of your
             fundraising projects, please email us at{" "}
-            <strong>bears07chingu@gmail.com</strong>. <br />
+            <strong>payout@restofund.com</strong>. <br />
             <br /> We will handle your payout manually within two business days.
             Thank you!
           </p>

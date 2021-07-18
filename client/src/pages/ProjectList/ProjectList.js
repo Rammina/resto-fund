@@ -62,7 +62,7 @@ const ProjectList = (props) => {
         <ul className="projectslist-page__items">
           {projects.length < 1 ? (
             <h2
-              id="projectslist-page__loader-heading"
+              id="projects-loader__text"
               className="projectslist-page__heading"
             >
               Loading fundraisers...

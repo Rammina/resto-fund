@@ -16,7 +16,8 @@
   }
 
   &.navmenu__item {
-    display: block;
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
     min-height: 3rem;
     line-height: 3rem;
