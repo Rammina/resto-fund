@@ -2,6 +2,7 @@
 //   backgrounds
 $primaryColor: #1ab873;
 $primaryColorDim: #0aa863;
+$primaryColorDimTranslucent: #0aa863ee;
 $primaryColorBrighten: #2ac883;
 $primaryColorBrightenMore: #2fcd88;
 $primaryColorTranslucent: #0aa86340;
@@ -16,8 +17,8 @@ $gradientButtonBgGradient: linear-gradient(90deg, #0aa863 0%, #2fcd88 100%);
 $gradientButtonBgGradientDim: linear-gradient(90deg, #009e59 0%, #25c37e 100%);
 $gradientButtonBgGradientDimmer: linear-gradient(
   90deg,
-  #009e59 0%,
-  #25c37e 100%
+  hsl(153, 100%, 20%) 0%,
+  hsl(153, 68%, 40%) 100%
 );
 // contrast color to the primary
 // $tertiaryColor:

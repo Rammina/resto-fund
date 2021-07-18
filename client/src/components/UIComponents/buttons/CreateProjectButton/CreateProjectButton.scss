@@ -40,10 +40,10 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     margin-top: 1rem;
-    background: $gradientButtonBgGradient;
+    background: $gradientButtonBgGradientDim;
 
     &:hover {
-      background: $gradientButtonBgGradientDim;
+      background: $gradientButtonBgGradientDimmer;
     }
   }
 }

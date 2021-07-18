@@ -28,9 +28,9 @@
   padding: 0 1.75rem;
   font-weight: 700;
   margin: 1rem auto;
-  background: $gradientButtonBgGradient;
+  background: $gradientButtonBgGradientDim;
   &:hover {
-    background: $gradientButtonBgGradientDim;
+    background: $gradientButtonBgGradientDimmer;
   }
 }
 
