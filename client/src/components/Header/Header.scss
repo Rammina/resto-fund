@@ -23,9 +23,17 @@
   align-items: center;
   height: 3rem;
 }
-#header__website-title {
+#header__website-title-div {
+}
+#header__title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  filter: $whiteIconImageFilter;
 }
 #header__title-link {
+  display: flex;
+  align-items: center;
   font-weight: 700;
   font-size: 1.35rem;
   height: 3.75rem;

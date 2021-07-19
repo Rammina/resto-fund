@@ -1,3 +1,4 @@
+import SupportImage from "../../assets/icons/support.png";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,9 +11,14 @@ const Header = (props) => {
   return (
     <header className="header">
       {/*page title & link to home*/}
-      <div id="header__website-title" className="header__div">
+      <div id="header__website-title-div" className="header__div">
         <Link to="/" id="header__title-link">
-          RestoFund
+          <img
+            id="header__title-icon"
+            src={SupportImage}
+            alt="Hands holding heart image"
+          />
+          <span>RestoFund</span>
         </Link>
       </div>
       {/*hamburger & navmenu*/}

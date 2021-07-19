@@ -42,12 +42,18 @@
 }
 
 @include media-md {
+  .projectslist-page__heading {
+    font-size: 1.6rem;
+  }
   .projectslist-page__p {
     text-align: center;
     max-width: none;
   }
 }
 @include media-lg {
+  .projectslist-page__heading {
+    font-size: 2rem;
+  }
   .projectslist-page__item {
     width: 30%;
   }
