@@ -1,7 +1,12 @@
 import React from "react";
 import "./CallToActionSection.scss";
 
-const CallToActionSection = ({ actionButton, headingText, paragraphText }) => {
+const CallToActionSection = ({
+  actionButton,
+  headingText,
+  paragraphText,
+  className,
+}) => {
   const renderHeading = () => {
     //e.g. Interested in fundraising?
     if (headingText)
@@ -25,7 +30,7 @@ const CallToActionSection = ({ actionButton, headingText, paragraphText }) => {
   const renderActionButton = () => actionButton || null;
 
   return (
-    <section className="cta-section">
+    <section className={`cta-section ${className}`}>
       <div className="cta-section__content">
         {renderHeading()}
         {renderParagraph()}

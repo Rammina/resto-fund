@@ -59,6 +59,16 @@
   text-align: center;
 }
 
+.home__subheading {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  margin-bottom: 0.75rem;
+}
+
+.home__p {
+  margin-bottom: 1rem;
+}
+
 .btn.btn--create.home__fundraising-button {
   z-index: 0;
   position: relative;
@@ -96,6 +106,30 @@
   font-size: 1.1rem;
 }
 
+.home__div--flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.home__flex-image {
+  display: block;
+  width: 100vw;
+  height: 56.25vw;
+  max-width: 32rem;
+  max-height: 18rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  // box-shadow: 0px;
+  background-color: $secondaryBlackLight;
+}
+
+.home__div--text {
+  max-width: 32rem;
+}
+
 .home__items {
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +149,7 @@
   max-width: 25.75rem;
   margin: 0 auto;
   margin-top: 2rem;
-  padding-left: 1rem;
+  // padding-left: 1rem;
 }
 
 .home__values-item {
@@ -175,7 +209,7 @@
     margin: 2rem auto;
   }
   .home__values-items {
-    max-width: 27.4rem;
+    max-width: 33.5rem;
   }
 }
 
@@ -205,6 +239,12 @@
   }
   .home__heading {
     font-size: 2rem;
+  }
+  .home__subheading {
+    font-size: 1.4rem;
+  }
+  .home__p {
+    font-size: 1.05rem;
   }
   .home__item {
     width: 30%;
@@ -242,6 +282,25 @@
   .home__values-p.hide-on-mobile {
     display: block;
     margin-top: 0.5rem;
+  }
+  .home__div--flex {
+    max-width: 60rem;
+    justify-content: center;
+    // align-items: center;
+  }
+  //TODO:  I think I should just go for 4:3 ratio instead
+  .home__flex-image {
+    width: 40vw;
+    height: 30vw;
+    max-width: 24rem;
+    max-height: 18rem;
+    margin: 0;
+  }
+  .home__div--text {
+    width: 50vw;
+    max-width: 30rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
   }
 }
 

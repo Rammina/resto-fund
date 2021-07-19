@@ -3,7 +3,9 @@
 .cta-section {
   padding: 1rem 0.5rem;
   background-color: $secondaryBgColor;
-  // max-width: ;
+  &.alternate-bg {
+    background-color: $mainBgColor;
+  }
 }
 .cta-section__content {
   max-width: 60rem;

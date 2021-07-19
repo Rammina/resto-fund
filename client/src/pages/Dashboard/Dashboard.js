@@ -116,7 +116,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                   className={`dashboard__menu-item ${getFundraisingActiveClass()}`}
                 >
                   <img
-                    class="dashboard__menu-img"
+                    className="dashboard__menu-img"
                     src={SupportImage}
                     alt="support icon"
                   />
@@ -131,7 +131,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                   className={`dashboard__menu-item ${getDonationsActiveClass()}`}
                 >
                   <img
-                    class="dashboard__menu-img"
+                    className="dashboard__menu-img"
                     src={DonationImage}
                     alt="donation icon"
                   />
@@ -146,7 +146,7 @@ const Dashboard = ({ getAllUserProjects, user, userProjects }) => {
                   className={`dashboard__menu-item ${getPayoutActiveClass()}`}
                 >
                   <img
-                    class="dashboard__menu-img"
+                    className="dashboard__menu-img"
                     src={MoneyImage}
                     alt="money icon"
                   />

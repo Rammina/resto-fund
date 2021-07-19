@@ -33,25 +33,34 @@ const App = (props) => {
   const isLoadingUser = useSelector((state) => state.auth.isLoading);
   const dispatch = useDispatch();
   // screen with variables
-  const { NON_MOBILE_WIDTH, NON_MOBILE_HEIGHT } = constants;
+  const { NON_MOBILE_WIDTH, NON_MOBILE_HEIGHT, LAPTOP_WIDTH, LAPTOP_HEIGHT } =
+    constants;
   const [isNonMobileWidth, setIsNonMobileWidth] = useState(
     window.innerWidth >= NON_MOBILE_WIDTH
   );
   const [isNonMobileHeight, setIsNonMobileHeight] = useState(
     window.innerHeight >= NON_MOBILE_HEIGHT
   );
+  const [isLaptopWidth, setIsLaptopWidth] = useState(
+    window.innerWidth >= LAPTOP_WIDTH
+  );
+  const [isLaptopHeight, setIsLaptopHeight] = useState(
+    window.innerHeight >= LAPTOP_HEIGHT
+  );
 
   const handleResize = () => {
-    if (window.innerWidth >= NON_MOBILE_WIDTH) {
-      setIsNonMobileWidth(true);
-    } else {
-      setIsNonMobileWidth(false);
-    }
-    if (window.innerHeight >= NON_MOBILE_HEIGHT) {
-      setIsNonMobileHeight(true);
-    } else {
-      setIsNonMobileHeight(false);
-    }
+    // check if isNonMobileWidth
+    if (window.innerWidth >= NON_MOBILE_WIDTH) setIsNonMobileWidth(true);
+    else setIsNonMobileWidth(false);
+    // check if isNonMobileHeight
+    if (window.innerHeight >= NON_MOBILE_HEIGHT) setIsNonMobileHeight(true);
+    else setIsNonMobileHeight(false);
+    // check if isLaptopWidth
+    if (window.innerWidth >= LAPTOP_WIDTH) setIsLaptopWidth(true);
+    else setIsLaptopWidth(false);
+    // check if isLaptopHeight
+    if (window.innerHeight >= LAPTOP_HEIGHT) setIsLaptopHeight(true);
+    else setIsLaptopHeight(false);
   };
 
   useEffect(() => {
@@ -66,7 +75,12 @@ const App = (props) => {
   }, []);
 
   const getWindowContextValue = () => {
-    return { isNonMobileWidth, isNonMobileHeight };
+    return {
+      isNonMobileWidth,
+      isNonMobileHeight,
+      isLaptopWidth,
+      isLaptopHeight,
+    };
   };
 
   // render

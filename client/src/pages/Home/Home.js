@@ -10,6 +10,9 @@ import PhoneImg from "../../assets/icons/phone.png";
 import ShareImg from "../../assets/icons/share.png";
 // Icons made by Good Ware from www.flaticon.com
 import CustomerServiceImg from "../../assets/icons/customer-service.png";
+// Photo by Katerina Holmes from Pexels
+import ChineseCookDesktopImg from "../../assets/images/chinese-cook-desk.png";
+import ChineseCookMobileImg from "../../assets/images/chinese-cook-mob.png";
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -17,6 +20,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import CreateProjectButton from "../../components/UIComponents/buttons/CreateProjectButton/CreateProjectButton";
 import CallToActionSection from "../../components/CallToActionSection/CallToActionSection";
+import { WindowContext } from "../../AppContext";
 import { getProjectList } from "../../redux/actions/projectsActions";
 import { actionShowLoader } from "../../redux/actions/loaderActions";
 import { CLEAR_PROJECT_LIST } from "../../redux/actions/types";
@@ -29,6 +33,8 @@ const Home = () => {
   // redux store variables
   const projects = useSelector((state) => state.allProjects);
   const user = useSelector((state) => state.user.info);
+  // context
+  const { isLaptopWidth, isLaptopHeight } = useContext(WindowContext);
 
   const getProjectListHandler = () => {
     // place a limit of 3 projects only because homepage doesn't need all of them listed
@@ -46,6 +52,11 @@ const Home = () => {
       unmountProjectListHandler();
     };
   }, []);
+
+  const getChineseCookImage = () => {
+    //TODO: change this to something like is laptop width
+    return isLaptopWidth ? ChineseCookDesktopImg : ChineseCookMobileImg;
+  };
 
   return (
     <main className="home page-container">
@@ -106,8 +117,33 @@ const Home = () => {
           </Link>
         </div>
       </section>
+      {/*Testimonials section*/}
+      <section className="home__section">
+        <div className="home__section-content">
+          <h2 className="home__heading">User Stories</h2>
+          <hr className="hr" />
+          <div class="home__div--flex">
+            <img
+              class="home__flex-image"
+              src={getChineseCookImage()}
+              alt="user story Image"
+            />
+            <div class="home__div--text">
+              <h3 className="home__subheading">What Jam said...</h3>
+              <p className="home__p italicized">
+                "I always wanted to establish my own Chinese restaurant ever
+                since I was a little kid, but I had no money throughout my life.
+                Thankfully, RestoFund gave me hope and helped me establish a
+                successful fundraiser."
+              </p>
+              <p className="home__p">
+                Jam raised $140k to help fund her dream Chinese restaurant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*value section*/}
-
       <section className="home__section">
         <div className="home__section-content">
           <h2 className="home__heading">Leader of Restaurant Crowdfunding</h2>
@@ -216,6 +252,7 @@ const Home = () => {
       <CallToActionSection
         headingText="Interested in fundraising?"
         paragraphText=""
+        className="alternate-bg"
         // style={{background-color: ;}}
         actionButton={
           <CreateProjectButton

@@ -117,11 +117,11 @@ const NavMenu = (props) => {
         }}
         onClose={userDropdownMenuOnCloseHandler}
       >
-        <div class="dropdown__item--flex" id="dropdown__profile">
-          <div class="dropdown__img-div">
+        <div className="dropdown__item--flex" id="dropdown__profile">
+          <div className="dropdown__img-div">
             <ProfilePicture className="user-dropdown" />
           </div>
-          <div class="dropdown__text-div">
+          <div className="dropdown__text-div">
             <h4 className="dropdown__user">{user && user.username}</h4>
             <span className="dropdown__span">Registered User</span>
           </div>
@@ -179,7 +179,7 @@ const NavMenu = (props) => {
   const renderConditionalItems = () =>
     !isSignedIn ? (
       <Link to="/login" className="navmenu__item">
-        <img class="navmenu__item-img" src={LoginImage} alt="Login Image" />
+        <img className="navmenu__item-img" src={LoginImage} alt="Login Image" />
         <span>Login</span>
       </Link>
     ) : (
@@ -187,7 +187,7 @@ const NavMenu = (props) => {
         {/*only allow access to dashboard & logout if user is signed in*/}
         <Link to="/dashboard" className="navmenu__item">
           <img
-            class="navmenu__item-img"
+            className="navmenu__item-img"
             src={DashboardImage}
             alt="Dashboard Image"
           />
@@ -250,7 +250,11 @@ const NavMenu = (props) => {
         </div>
         <ul className="navmenu__items">
           <Link to="/" className="navmenu__item">
-            <img class="navmenu__item-img" src={HomeImage} alt="Home Image" />
+            <img
+              className="navmenu__item-img"
+              src={HomeImage}
+              alt="Home Image"
+            />
             <span>Home</span>
           </Link>
           <Link
@@ -260,13 +264,13 @@ const NavMenu = (props) => {
             onMouseLeave={fundraiserOnMouseLeaveHandler}
           >
             <img
-              class="navmenu__item-img"
+              className="navmenu__item-img"
               src={SupportImage}
               alt="Fundraisers Image"
             />
             <span className="navmenu__item-span">Fundraisers</span>
             <img
-              class="navmenu__item-img button__icon"
+              className="navmenu__item-img button__icon"
               src={DownArrowImage}
               alt="down arrow image"
             />
