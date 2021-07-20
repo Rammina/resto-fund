@@ -4,7 +4,8 @@ $primaryColor: #1ab873;
 $primaryColorDim: #0aa863;
 $primaryColorDimTranslucent: #0aa863f8;
 $primaryColorBrighten: #2ac883;
-$primaryColorBrightenMore: #2fcd88;
+$primaryColorBrightenMore: hsl(154, 63%, 49%);
+$primaryColorBrightenEvenMore: #5ed4a1;
 $primaryColorTranslucent: #0aa86340;
 // #0aa86344
 // #bee8d5
@@ -13,8 +14,9 @@ $secondaryColor: #1fc278;
 $secondaryColorDark: #007162;
 
 // colors for dark background
-$darkPrimaryColor: #deffec;
-$darkSecondaryColor: #bedfcc;
+$darkPrimaryColor: hsl(154, 40%, 80%);
+// hsl(153,62%,49%)
+$darkSecondaryColor: hsl(154, 30%, 80%);
 
 $authPageBgGradient: linear-gradient(0deg, #aed8c5 0%, #deffec 100%);
 $gradientButtonBgGradient: linear-gradient(90deg, #0aa863 0%, #2fcd88 100%);
@@ -38,16 +40,21 @@ $blackIconImageFilter: invert(6%) sepia(5%) saturate(4412%) hue-rotate(149deg)
   brightness(97%) contrast(83%);
 $blackIconImageFilterLight: invert(29%) sepia(0%) saturate(1%)
   hue-rotate(104deg) brightness(97%) contrast(88%);
+$blackIconImageFilterLighter: invert(22%) sepia(5%) saturate(1936%)
+  hue-rotate(158deg) brightness(97%) contrast(91%);
 $whiteIconImageFilter: invert(100%) sepia(58%) saturate(0%) hue-rotate(133deg)
   brightness(114%) contrast(101%);
 $greenIconImageFilter: invert(58%) sepia(59%) saturate(6690%) hue-rotate(131deg)
   brightness(90%) contrast(92%);
+$greenOnDarkIconImageFilter: invert(73%) sepia(59%) saturate(357%)
+  hue-rotate(99deg) brightness(93%) contrast(83%);
 
 // $mainBlack: #000;
 $mainBlack: hsl(198, 22%, 10%);
 $mainBlackLight: hsl(198, 22%, 15%);
 $secondaryBlack: hsl(195, 18%, 13%);
 $secondaryBlackLight: hsl(198, 18%, 17%);
+$secondaryBlackLighter: hsl(202, 15%, 24%);
 $mainWhite: #fafdff;
 $mainWhiteDim: #eaedef;
 $fontPrimary: "Commissioner", sans-serif;

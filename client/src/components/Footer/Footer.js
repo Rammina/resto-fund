@@ -1,9 +1,10 @@
 import SupportImage from "../../assets/icons/support.png";
 import GiftImage from "../../assets/images/gift.svg";
-// import Image from "../../assets/icons/.png";
-// import Image from "../../assets/icons/.png";
-// import Image from "../../assets/icons/.png";
-// import Image from "../../assets/icons/.png";
+// <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+import FacebookImage from "../../assets/icons/facebook.png";
+import TwitterImage from "../../assets/icons/twitter.png";
+import InstagramImage from "../../assets/icons/instagram.png";
+import LinkedInImage from "../../assets/icons/linkedin.png";
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -36,16 +37,33 @@ const Footer = ({}) => {
               <h3 className="footer__subheading">Follow us on:</h3>
               <div class="footer__div--links">
                 <Link class="footer__link--social" to="#">
-                  <img class="footer__image--button" src={""} alt=" image" />
+                  <img
+                    class="footer__image--button"
+                    src={FacebookImage}
+                    alt="Facebook image"
+                  />
                 </Link>
                 <Link class="footer__link--social" to="#">
-                  <img class="footer__image--button" src={""} alt=" image" />
+                  <img
+                    class="footer__image--button"
+                    src={TwitterImage}
+                    alt="Twitter image"
+                  />
                 </Link>
                 <Link class="footer__link--social" to="#">
-                  <img class="footer__image--button" src={""} alt=" image" />
+                  <img
+                    class="footer__image--button"
+                    src={InstagramImage}
+                    alt="Instagram image"
+                  />
                 </Link>
                 <Link class="footer__link--social" to="#">
-                  <img class="footer__image--button" src={""} alt=" image" />
+                  <img
+                    id="linkedin-icon"
+                    class="footer__image--button"
+                    src={LinkedInImage}
+                    alt="LinkedIn image"
+                  />
                 </Link>
               </div>
             </div>

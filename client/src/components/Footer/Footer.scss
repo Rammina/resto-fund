@@ -3,7 +3,7 @@
 
 .footer {
   width: 100%;
-  background-color: $secondaryBlackLight;
+  background-color: $secondaryBlackLighter;
   padding: 1rem;
   color: $mainWhite;
 }
@@ -11,7 +11,7 @@
 .footer__heading,
 .footer__subheading {
   text-align: center;
-  color: $primaryColorBrightenMore;
+  color: $primaryColor;
 }
 
 #footer__div--title {
@@ -79,9 +79,23 @@
   display: inline-block;
   width: 2.5rem;
   height: 2.5rem;
+  padding: 0.625rem;
   background-color: $darkSecondaryColor;
   border-radius: 50%;
-  margin: 0 0.4rem;
+  margin: 0;
+  margin-right: 0.8rem;
+}
+
+.footer__image--button {
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: $blackIconImageFilterLighter;
+}
+
+#linkedin-icon {
+  position: relative;
+  bottom: 0.1rem;
+  left: 0.05rem;
 }
 
 .footer__links {
