@@ -1,4 +1,12 @@
+import SupportImage from "../../assets/icons/support.png";
+import GiftImage from "../../assets/images/gift.svg";
+// import Image from "../../assets/icons/.png";
+// import Image from "../../assets/icons/.png";
+// import Image from "../../assets/icons/.png";
+// import Image from "../../assets/icons/.png";
+
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Footer.scss";
 
@@ -6,14 +14,56 @@ const Footer = ({}) => {
   return (
     <footer className="footer">
       <section class="footer__section--flex">
+        {/*left side - title and social media*/}
         <div class="footer__div--half">
-          <h2 className="footer__heading">RestoFund</h2>
+          <div id="footer__div--title">
+            <img
+              class="footer__image--title"
+              src={SupportImage}
+              alt="hands holding a heart image"
+            />
+            <h2 className="footer__heading">RestoFund</h2>
+          </div>
           <div class="footer__div--flex">
-            <div id="footer__image-div" class="footer__div--half"></div>
-            <div id="footer__social-media-div" class="footer__div--half"></div>
+            <div id="footer__image-div" class="footer__div--half">
+              <img
+                class="footer__image--large"
+                src={GiftImage}
+                alt="gift image"
+              />
+            </div>
+            <div id="footer__social-media-div" class="footer__div--half">
+              <h3 className="footer__subheading">Follow us on:</h3>
+              <div class="footer__div--links">
+                <Link class="footer__link--social" to="#">
+                  <img class="footer__image--button" src={""} alt=" image" />
+                </Link>
+                <Link class="footer__link--social" to="#">
+                  <img class="footer__image--button" src={""} alt=" image" />
+                </Link>
+                <Link class="footer__link--social" to="#">
+                  <img class="footer__image--button" src={""} alt=" image" />
+                </Link>
+                <Link class="footer__link--social" to="#">
+                  <img class="footer__image--button" src={""} alt=" image" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer__div--half"></div>
+        {/*right side -  links*/}
+        <div class="footer__div--half">
+          <ul className="footer__links">
+            <li className="footer__link">Home</li>
+            <li className="footer__link">Fundraisers</li>
+            <li className="footer__link">Login</li>
+            <li className="footer__link">Register</li>
+            <li className="footer__link">About Us</li>
+            <li className="footer__link">Terms of Use</li>
+            <li className="footer__link">Cookie Policy</li>
+            <li className="footer__link">Privacy Policy</li>
+          </ul>
+        </div>
       </section>
     </footer>
   );

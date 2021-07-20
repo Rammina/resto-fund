@@ -4,9 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import history from "./history";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// note: Home page definitely needs to be revamped way later on (Tella)
-// import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
@@ -123,6 +122,7 @@ const App = (props) => {
               />
             </Route>
           </Switch>
+          <Footer />
         </WindowContext.Provider>
       </Router>
     </div>

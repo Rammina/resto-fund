@@ -116,8 +116,8 @@
 }
 .home__flex-image {
   display: block;
-  width: 100vw;
-  height: 56.25vw;
+  width: calc(100vw - 2rem);
+  height: calc(56.25vw - 2rem);
   max-width: 32rem;
   max-height: 18rem;
   margin: 0 auto;
@@ -127,7 +127,10 @@
 }
 
 .home__div--text {
-  max-width: 32rem;
+  margin: 0 auto;
+  width: calc(100vw - 2rem);
+  // max-width: 33rem;
+  // padding: 0 0.5rem;
 }
 
 .home__items {
@@ -146,7 +149,7 @@
 }
 
 .home__values-items {
-  max-width: 25.75rem;
+  max-width: 33.5rem;
   margin: 0 auto;
   margin-top: 2rem;
   // padding-left: 1rem;
