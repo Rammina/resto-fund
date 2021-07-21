@@ -34,7 +34,7 @@ const Footer = ({}) => {
               />
             </div>
             <div id="footer__social-media-div" class="footer__div--half">
-              <h3 className="footer__subheading">Follow us on:</h3>
+              <h3 className="footer__subheading">Follow us on</h3>
               <div class="footer__div--links">
                 <Link class="footer__link--social" to="#">
                   <img
@@ -72,14 +72,30 @@ const Footer = ({}) => {
         {/*right side -  links*/}
         <div class="footer__div--half">
           <ul className="footer__links">
-            <li className="footer__link">Home</li>
-            <li className="footer__link">Fundraisers</li>
-            <li className="footer__link">Login</li>
-            <li className="footer__link">Register</li>
-            <li className="footer__link">About Us</li>
-            <li className="footer__link">Terms of Use</li>
-            <li className="footer__link">Cookie Policy</li>
-            <li className="footer__link">Privacy Policy</li>
+            <Link to="/" className="footer__link">
+              Home
+            </Link>
+            <Link to="/fundraisers" className="footer__link">
+              Fundraisers
+            </Link>
+            <Link to="/login" className="footer__link">
+              Login
+            </Link>
+            <Link to="/register" className="footer__link">
+              Register
+            </Link>
+            <Link to="#" className="footer__link">
+              About Us
+            </Link>
+            <Link to="#" className="footer__link">
+              Terms of Use
+            </Link>
+            <Link to="#" className="footer__link">
+              Cookie Policy
+            </Link>
+            <Link to="#" className="footer__link">
+              Privacy Policy
+            </Link>
           </ul>
         </div>
       </section>

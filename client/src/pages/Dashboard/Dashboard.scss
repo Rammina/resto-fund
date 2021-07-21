@@ -185,6 +185,10 @@
 }
 
 @include media-lg {
+  .dashboard__flex-outer-container {
+    padding-bottom: 3rem;
+  }
+
   .dashboard-content__heading {
     width: fit-content;
   }

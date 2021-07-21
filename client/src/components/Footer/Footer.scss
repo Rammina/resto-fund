@@ -84,6 +84,9 @@
   border-radius: 50%;
   margin: 0;
   margin-right: 0.8rem;
+  &:hover {
+    background-color: $darkSecondaryColorDim;
+  }
 }
 
 .footer__image--button {
@@ -109,7 +112,10 @@
   display: list-item;
   min-height: 2rem;
   padding: 0.5rem;
-  // vertical-align: middle;
+  &:hover {
+    background-color: #fff1;
+    color: $primaryColorBrightenEvenMore;
+  }
 }
 
 @include media-md {
