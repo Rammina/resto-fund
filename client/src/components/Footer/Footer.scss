@@ -42,7 +42,7 @@
 .footer__section--flex {
   display: flex;
   flex-wrap: wrap;
-  max-width: 70rem;
+  max-width: $contentAreaMaxWidth;
   margin: 0 auto;
 }
 

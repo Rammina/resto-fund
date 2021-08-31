@@ -3,9 +3,7 @@
 
 .header {
   z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   background-color: $primaryColorDimTranslucent;
   color: $mainWhite;
   position: fixed;
@@ -16,6 +14,15 @@
   padding: 0 0.8rem;
   border-bottom: 1px solid #0002;
   box-shadow: 0 0 5px 0 #0005;
+}
+.header__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //TODO:  I don't feel like doing math right now
+  // max-width: $contentAreaMaxWidth;
+  height: 3.75rem;
+  margin: 0 auto;
 }
 .header__div {
   display: flex;

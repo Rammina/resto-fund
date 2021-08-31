@@ -10,21 +10,23 @@ const Header = (props) => {
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
   return (
     <header className="header">
-      {/*page title & link to home*/}
-      <div id="header__website-title-div" className="header__div">
-        <Link to="/" id="header__title-link">
-          <img
-            id="header__title-icon"
-            src={SupportImage}
-            alt="Hands holding heart image"
-          />
-          <span>RestoFund</span>
-        </Link>
-      </div>
-      {/*hamburger & navmenu*/}
-      <div className="header__div">
-        <NavMenu />
-      </div>
+      <section className="header__section">
+        {/*page title & link to home*/}
+        <div id="header__website-title-div" className="header__div">
+          <Link to="/" id="header__title-link">
+            <img
+              id="header__title-icon"
+              src={SupportImage}
+              alt="Hands holding heart image"
+            />
+            <span>RestoFund</span>
+          </Link>
+        </div>
+        {/*hamburger & navmenu*/}
+        <div className="header__div">
+          <NavMenu />
+        </div>
+      </section>
     </header>
   );
 };

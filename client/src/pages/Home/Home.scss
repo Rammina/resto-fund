@@ -12,6 +12,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  //TODO: I don't feel like doing math right now
+  // max-width: $contentAreaMaxWidth;
+  // margin: 0 auto;
   min-height: 15rem;
   background-color: $secondaryBlack;
   background-image: url("../../assets/images/restofund-hero-image.png");
@@ -26,7 +29,7 @@
 }
 
 .home__section-content {
-  max-width: 60rem;
+  max-width: $contentAreaMaxWidth;
   margin: 0 auto;
 }
 #home__hero-waves {

@@ -25,7 +25,7 @@ import * as constants from "./utils/constants.js";
 import "./normalize.css";
 import "./index.scss";
 
-const App = (props) => {
+const App = () => {
   // redux store variables
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
   const user = useSelector((state) => state.user.info);

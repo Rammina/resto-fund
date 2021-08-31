@@ -2,7 +2,6 @@ import "./index.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Router, Route, Redirect, Switch } from "react-router-dom";
 import store from "./configureStore";
 import App from "./App";
 
