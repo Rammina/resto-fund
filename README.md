@@ -19,7 +19,7 @@
 RestoFund is a crowd-funding web application, specialized for helping restaurants collect donations to
 help deal with disasters. It was initially a [team project for Chingu Voyage 30](https://chingu.io/), but forked and updated as a solo project. Technologies used are React.js, Node.js, Express, MongoDB, Sass, Google OAuth, Stripe API.
 
-<b>LIVE LINK:</b> https://resto-fund.netlify.app/
+<b>LIVE LINK:</b> https://resto-fund.vercel.app/
 
 ### Features
 
